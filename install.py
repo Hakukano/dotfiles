@@ -3,7 +3,7 @@
 from pathlib import Path
 import os
 
-VERSION_FILE = Path('VERSION')
+VERSION_FILE = Path('.dotfiles_version')
 SRC_HOME = Path(__file__).parent.absolute().joinpath('home')
 DST_HOME = Path.home()
 
