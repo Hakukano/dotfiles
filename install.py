@@ -36,7 +36,6 @@ def install_1():
         '.config/zathura',
         '.config/picom.conf',
         '.dbus',
-        '.icons',
         '.local/share/fonts',
         '.scripts',
         '.vim',
