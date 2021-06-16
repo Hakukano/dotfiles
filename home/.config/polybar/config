@@ -178,7 +178,7 @@ type = custom/text
 format-spacing = 1
 content = 
 content-foreground = ${colors.red}
-click-left = bash ~/.config/rofi/launch.sh powermenu
+click-left = bash ~/.config/rofi/powermenu/powermenu.sh
 
 
 [settings]

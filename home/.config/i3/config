@@ -32,7 +32,9 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start menu
-bindsym $mod+d exec ~/.config/rofi/launch.sh drun
+bindsym $mod+d exec ~/.config/rofi/launchers/ribbon/launcher.sh
+# powermenu
+bindsym $mod+Shift+e exec ~/.config/rofi/powermenu/powermenu.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -108,8 +110,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Always float certain windows
 for_window [class="mpv"] floating enable
