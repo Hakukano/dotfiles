@@ -4,7 +4,7 @@ Table of Contents
    * [Arch](#arch)
       * [Example](#example)
       * [Post-installation](#post-installation)
-      * [Awesome](#awesome)
+      * [i3](#i3)
    * [Installation](#installation)
    * [Must-have list](#must-have-list)
       * [git](#git)
@@ -194,16 +194,12 @@ ssh-keygen
 sudo ssh-keygen -A
 ```
 
-## Awesome
+## i3
 
-```
-sudo pacman -S thunar kitty ncmpcpp gtk3 picom
-yay -S awesome-git rofi lm_sensors acpid jq fortune-mod redshift mpd mpc maim feh light-git pulseaudio inotify-tools xdotool
-systemctl --user enable mpd.service
-systemctl --user start mpd.service
-sudo systemctl enable acpid.service
-sudo systemctl start acpid.service
-fc-cache -v
+```sh
+sudo pacman -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind noto-fonts-cjk noto-fonts-emoji noto-fonts feh alsa-utils scrot imagemagick util-linux dunst ttf-hack pulseaudio mpd acpi
+yay -S picom-ibhagwan-git polybar ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family i3lock-fancy-git i3lock-color-git
+fc-cache
 ```
 
 # Installation
