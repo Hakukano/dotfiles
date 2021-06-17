@@ -27,6 +27,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # start a terminal
 bindsym $mod+Return exec urxvt
+# start taskwarrior-tui
+bindsym $mod+Ctrl+Shift+t exec urxvt -e taskwarrior-tui
 
 # kill focused window
 bindsym $mod+Shift+q kill

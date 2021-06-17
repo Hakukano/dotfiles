@@ -16,6 +16,7 @@ Table of Contents
       * [firefox](#firefox)
       * [htop](#htop)
       * [ibus](#ibus)
+      * [taskwarrior-tui](#taskwarrior-tui)
       * [tldr](#tldr)
       * [tmux](#tmux)
       * [tree](#tree)
@@ -259,6 +260,12 @@ sudo pacman -S htop
 ```sh
 sudo pacman -S ibus ibus-rime
 yay -S ibus-mozc
+```
+
+## taskwarrior-tui
+
+```sh
+sudo pacman -S taskwarrior-tui
 ```
 
 ## tldr

@@ -80,6 +80,7 @@ class Installation1(Installation):
             '.zsh_completion',
             '.latexmkrc',
             '.p10k.zsh',
+            '.taskrc',
             '.tmux.conf',
             '.xinitrc',
             '.Xresources',
