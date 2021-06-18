@@ -6,22 +6,6 @@ Table of Contents
       * [Post-installation](#post-installation)
       * [i3](#i3)
    * [Installation](#installation)
-   * [Must-have list](#must-have-list)
-      * [git](#git)
-      * [zsh](#zsh)
-      * [npm](#npm)
-      * [nvim](#nvim)
-   * [Optional list](#optional-list)
-      * [amethyst](#amethyst)
-      * [firefox](#firefox)
-      * [htop](#htop)
-      * [ibus](#ibus)
-      * [taskwarrior-tui](#taskwarrior-tui)
-      * [tldr](#tldr)
-      * [tmux](#tmux)
-      * [tree](#tree)
-      * [xclip](#xclip)
-   * [Outline VPN Config](#outline-vpn-config)
 
 # Arch
 
@@ -195,113 +179,10 @@ ssh-keygen
 sudo ssh-keygen -A
 ```
 
-## i3
-
-```sh
-sudo pacman -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind noto-fonts-cjk noto-fonts-emoji noto-fonts feh alsa-utils scrot imagemagick util-linux dunst ttf-hack pulseaudio mpd acpi
-yay -S picom-ibhagwan-git polybar ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family i3lock-fancy-git i3lock-color-git
-fc-cache
-```
-
 # Installation
 
-At least to have a ~/Git directory and all git repos go into it.
+1. Create ~/Git, clone this repo into it.
 
-Run install.py in a clean environment, then install not-installed programs in the Must-have list below.
+2. Install python3
 
-# Must-have list
-
-## zsh
-
-```sh
-sudo pacman -S zsh
-chsh -s /bin/zsh
-```
-
-## npm
-
-```sh
-sudo pacman -S nodejs npm
-```
-
-## nvim
-
-```sh
-yay -S neovim-git bear rust-analyzer-git
-sudo pacman -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rustup texlive-core texlab zathura zathura-pdf-mupdf
-pip3 install neovim cmake-language-server 'python-language-server[all]'
-npm install -g typescript bash-language-server dockerfile-language-server-nodejs vscode-css-languageserver-bin vscode-html-languageserver-bin vscode-json-languageserver typescript-language-server vim-language-server yaml-language-server purescript-language-server purty
-~/.fzf/install
-source ~/.zshrc
-```
-
-# Optional list
-
-## amethyst
-
-```sh
-sudo pacman -S grep gcc pkgconf openssl alsa-lib cmake make python3 freetype2 awk libxcb
-```
-
-## firefox
-
-```sh
-sudo pacman -S firefox
-```
-
-## htop
-
-```sh
-sudo pacman -S htop
-```
-
-## ibus
-
-```sh
-sudo pacman -S ibus ibus-rime
-yay -S ibus-mozc
-```
-
-## taskwarrior-tui
-
-```sh
-sudo pacman -S taskwarrior-tui
-```
-
-## tldr
-
-```sh
-sudo pacman -S tldr
-```
-
-## tmux
-
-```sh
-sudo pacman -S tmux xsel
-cd ~/Git
-git clone https://github.com/tmux-plugins/tpm
-```
-
-Ctrl-b I to install plugins
-
-Ctrl-b U to update plugins
-
-Ctrl-b alt-u to remove plugins
-
-## tree
-
-```sh
-sudo pacman -S tree
-```
-
-## xclip
-
-```sh
-sudo pacman -S xclip
-```
-
-# Outline VPN Config
-
-```sh
-sudo wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
-```
+3. Run install.sh, follow the prompt to setup
