@@ -183,6 +183,6 @@ sudo ssh-keygen -A
 
 1. Create ~/Git, clone this repo into it.
 
-2. Install python3
+2. Install python3 and pip3
 
 3. Run install.sh, follow the prompt to setup

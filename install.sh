@@ -1,7 +1,12 @@
 #!/bin/sh
 
 if [[ ! `command -v python3` ]]; then
-  echo 'Please install python 3 before run this script!'
+  echo 'Please install python3 before run this script!'
+  exit 1
+fi
+
+if [[ ! `command -v pip3` ]]; then
+  echo 'Please install pip3 before run this script!'
   exit 1
 fi
 
