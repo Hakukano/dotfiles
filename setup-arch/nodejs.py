@@ -1,6 +1,7 @@
 from module import Module
 
 CONFIGS = [
+    '.npmrc'
 ]
 
 PROGRAMS = {
