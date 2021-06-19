@@ -13,6 +13,9 @@ PROGRAMS = {
     'xclip': 'sudo pacman -S xclip',
 }
 
+DEPENDENCIES = [
+]
+
 GIT_TPM = 'https://github.com/tmux-plugins/tpm'
 
 DESCRIBE_HEADER_GIT = [
@@ -28,7 +31,8 @@ class Tmux(Module):
             'tmux',
             'tmux setup, Ctrl-b + i to install plugins',
             CONFIGS,
-            PROGRAMS
+            PROGRAMS,
+            DEPENDENCIES,
         )
 
     def status(self):

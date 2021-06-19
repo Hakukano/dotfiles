@@ -9,7 +9,16 @@ PROGRAMS = {
     'npm': 'sudo pacman -S npm',
 }
 
+DEPENDENCIES = [
+]
+
 
 class NodeJs(Module):
     def __init__(self):
-        super().__init__('nodejs', 'NodeJS + npm', CONFIGS, PROGRAMS)
+        super().__init__(
+            'nodejs',
+            'NodeJS + npm',
+            CONFIGS,
+            PROGRAMS,
+            DEPENDENCIES,
+        )

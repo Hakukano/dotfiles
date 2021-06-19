@@ -8,6 +8,9 @@ PROGRAMS = {
     'task': 'sudo pacman -S taskwarrior-tui',
 }
 
+DEPENDENCIES = [
+]
+
 
 class Task(Module):
     def __init__(self):
@@ -15,5 +18,6 @@ class Task(Module):
             'task',
             'taskwarrior + taskwarrior-tui',
             CONFIGS,
-            PROGRAMS
+            PROGRAMS,
+            DEPENDENCIES,
         )

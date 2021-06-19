@@ -1,5 +1,8 @@
 from module import Module
 
+from nodejs import NodeJs
+from scripts import Scripts
+
 CONFIGS = [
     '.config/nvim',
     '.config/zathura',
@@ -31,6 +34,11 @@ PROGRAMS = {
     'purty': 'npm install -g purty'
 }
 
+DEPENDENCIES = [
+    NodeJs(),
+    Scripts(),
+]
+
 
 class NeoVim(Module):
     def __init__(self):
@@ -38,5 +46,6 @@ class NeoVim(Module):
             'neovim',
             'NeoVim full setup, run ~/.fzf/install later!',
             CONFIGS,
-            PROGRAMS
+            PROGRAMS,
+            DEPENDENCIES,
         )

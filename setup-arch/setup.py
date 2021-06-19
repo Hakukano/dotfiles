@@ -1,6 +1,7 @@
 from prompt_toolkit import print_formatted_text, prompt, PromptSession
 from prompt_toolkit.completion import NestedCompleter
 from prompt_toolkit.formatted_text import HTML
+
 from tabulate import tabulate
 
 from i3 import I3

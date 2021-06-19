@@ -7,6 +7,9 @@ CONFIGS = [
 PROGRAMS = {
 }
 
+DEPENDENCIES = [
+]
+
 
 class Scripts(Module):
     def __init__(self):
@@ -14,5 +17,6 @@ class Scripts(Module):
             'scripts',
             'Some useful scripts',
             CONFIGS,
-            PROGRAMS
+            PROGRAMS,
+            DEPENDENCIES,
         )

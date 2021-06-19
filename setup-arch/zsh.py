@@ -13,6 +13,9 @@ PROGRAMS = {
     'zsh': 'sudo pacman -S zsh',
 }
 
+DEPENDENCIES = [
+]
+
 
 class Zsh(Module):
     def __init__(self):
@@ -20,5 +23,6 @@ class Zsh(Module):
             'zsh',
             'zsh + zgen, run chsh -s /bin/zsh later!',
             CONFIGS,
-            PROGRAMS
+            PROGRAMS,
+            DEPENDENCIES,
         )

@@ -24,14 +24,21 @@ DESCRIBE_HEADER_CONFIG = [
     'Destination',
     'Linked',
 ]
+DESCRIBE_HEADER_DEPENDENCY = [
+    'Name',
+    'Description',
+    'Status',
+    'Installed',
+]
 
 
 class Module:
-    def __init__(self, name, description, configs, programs):
+    def __init__(self, name, description, configs, programs, dependencies):
         self.name = name
         self.description = description
         self.configs = configs
         self.programs = programs
+        self.dependencies = dependencies
 
     def to_brief_row(self):
         installed = '{}N{}'.format(
@@ -51,6 +58,13 @@ class Module:
         ]
 
     def status(self):
+        for dependency in self.dependencies:
+            if not dependency.installed():
+                return '{}Dependency: {} is not installed{}'.format(
+                    ANSI_ERROR,
+                    dependency.name,
+                    ANSI_CLEAR,
+                )
         for program in self.programs.keys():
             if shutil.which(program) is None:
                 return '{}{} does not exist{}'.format(
@@ -138,17 +152,35 @@ class Module:
                 str(dst),
                 linked,
             ])
-        return '{}Programs{}:\n{}\n\n{}Configs{}:\n{}'.format(
+        dependency_rows = []
+        for dependency in self.dependencies:
+            dependency_rows.append(dependency.to_brief_row())
+        return '{}Programs{}:\n{}\n\n\
+{}Configs{}:\n{}\n\n\
+{}Dependencies{}:\n{}'.format(
             ANSI_BOLD,
             ANSI_CLEAR,
             tabulate(program_rows, headers=DESCRIBE_HEADER_PROGRAM),
             ANSI_BOLD,
             ANSI_CLEAR,
             tabulate(config_rows, headers=DESCRIBE_HEADER_CONFIG),
+            ANSI_BOLD,
+            ANSI_CLEAR,
+            tabulate(dependency_rows, headers=DESCRIBE_HEADER_DEPENDENCY),
         )
 
     def install(self):
         print('[INFO] Installing module: {}'.format(self.name))
+        for dependency in self.dependencies:
+            if not dependency.installed():
+                print('[{}WARN{}] Dependency: {} is not installed\
+, installing it'.format(ANSI_WARNING, dependency.name, ANSI_CLEAR))
+                dependency.install()
+                if not dependency.installed():
+                    print('[{}ERRO{}] Cannot install dependency: {}'.format(
+                        ANSI_ERROR, dependency.name, ANSI_CLEAR
+                    ))
+                    return
         print('[INFO] Linking configs...')
         for config in self.configs:
             src = SRC_HOME.joinpath(config)

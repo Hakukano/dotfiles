@@ -30,6 +30,9 @@ PROGRAMS = {
     'polybar': 'yay -S polybar',
 }
 
+DEPENDENCIES = [
+]
+
 
 class I3(Module):
     def __init__(self):
@@ -37,5 +40,6 @@ class I3(Module):
             'i3',
             'I3 setup, run fc-cache later!',
             CONFIGS,
-            PROGRAMS
+            PROGRAMS,
+            DEPENDENCIES,
         )
