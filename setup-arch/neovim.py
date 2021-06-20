@@ -1,7 +1,7 @@
 from module import Module
 
 from nodejs import NodeJs
-from scripts import Scripts
+from rust import Rust
 
 CONFIGS = [
     '.config/nvim',
@@ -13,10 +13,10 @@ CONFIGS = [
 PROGRAMS = {
     'nvim': 'yay -S neovim-git && pip install neovim',
     'ag': 'sudo pacman -S the_silver_searcher',
+    'rg': 'cargo install ripgrep --features="pcre2"',
     'clang': 'sudo pacman -S clang',
     'cscope': 'sudo pacman -S cscope',
     'cmake': 'sudo pacman -S cmake',
-    'rustup': 'sudo pacman -S rustup',
     'texlab': 'sudo pacman -S texlive-core texlab',
     'zathura': 'sudo pacman -S zathura zathura-pdf-mupdf',
     'cmake-language-server': 'pip install cmake-language-server',
@@ -36,7 +36,7 @@ PROGRAMS = {
 
 DEPENDENCIES = [
     NodeJs(),
-    Scripts(),
+    Rust(),
 ]
 
 

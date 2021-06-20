@@ -7,6 +7,7 @@ from tabulate import tabulate
 from i3 import I3
 from neovim import NeoVim
 from nodejs import NodeJs
+from rust import Rust
 from scripts import Scripts
 from task import Task
 from tmux import Tmux
@@ -16,6 +17,7 @@ MODULES = {
     'i3': I3(),
     'neovim': NeoVim(),
     'nodejs': NodeJs(),
+    'rust': Rust(),
     'scripts': Scripts(),
     'task': Task(),
     'tmux': Tmux(),
