@@ -16,18 +16,22 @@ CONFIGS = [
 
 PROGRAMS = {
     'i3':
-        'sudo pacman -S i3 xorg-server xorg-xinit '
-        'bind noto-fonts-cjk noto-fonts-emoji noto-fonts '
-        'feh alsa-utils scrot imagemagick util-linux '
-        'ttf-hack pulseaudio mpd acpi && '
-        'yay -S ttf-freefont ttf-ms-fonts ttf-linux-libertine '
-        'ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family '
-        'i3lock-fancy-git i3lock-color-git',
-    'urxvt': 'sudo pacman -S rxvt-unicode',
-    'rofi': 'sudo pacman -S rofi',
+        'sudo pacman -S i3 bind noto-fonts && '
+        'yay -S ttf-linux-libertine ttf-dejavu '
+        'ttf-inconsolata ttf-ubuntu-font-family ',
+    'Xorg': 'sudo pacman -S xorg-server xorg-xinit',
+    'acpi': 'sudo pacman -S acpi',
+    'alsamixer': 'sudo pacman -S alsa-utils',
     'dunst': 'sudo pacman -S dunst',
+    'feh': 'sudo pacman -S feh',
+    'i3lock-fancy': 'yay -S i3lock-color-git i3lock-fancy-git',
+    'mpd': 'sudo pacman -S mpd',
     'picom': 'yay -S picom-ibhagwan-git',
-    'polybar': 'yay -S polybar',
+    'polybar': 'yay -S polybar ttf-freefont ttf-ms-fonts',
+    'pulseaudio': 'sudo pacman -S pulseaudio-alsa',
+    'rofi': 'sudo pacman -S rofi noto-fonts-cjk noto-fonts-emoji',
+    'scrot': 'sudo pacman -S scrot',
+    'urxvt': 'sudo pacman -S rxvt-unicode ttf-hack',
 }
 
 DEPENDENCIES = [
