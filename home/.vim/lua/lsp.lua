@@ -59,6 +59,7 @@ lspconfig.rust_analyzer.setup({
     ["rust-analyzer"] = {
       cargo = {
         loadOutDirsFromCheck = true,
+        allFeatures = true,
       },
       -- diagnostics = {
       --   disabled = {"macro-error"},
