@@ -55,20 +55,6 @@ lspconfig.pyls.setup({
 })
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = {
-        loadOutDirsFromCheck = true,
-        allFeatures = true,
-      },
-      -- diagnostics = {
-      --   disabled = {"macro-error"},
-      -- },
-      procMacro = {
-        enable = true,
-      },
-    },
-  },
 })
 lspconfig.texlab.setup({
   on_attach = on_attach,
