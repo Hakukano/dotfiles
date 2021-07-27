@@ -50,7 +50,7 @@ lspconfig.jsonls.setup({
 lspconfig.purescriptls.setup({
   on_attach = on_attach,
 })
-lspconfig.pyls.setup({
+lspconfig.pylsp.setup({
   on_attach = on_attach,
 })
 lspconfig.rust_analyzer.setup({
