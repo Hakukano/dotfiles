@@ -55,7 +55,6 @@ load-starter-plugin-list() {
     zgen load RobSis/zsh-completion-generator
     zgen load srijanshetty/docker-zsh
     zgen load unixorn/rake-completion.zshplugin
-    zgen load zsh-users/zsh-completions src
     # >>>>
 
     # Load me last
