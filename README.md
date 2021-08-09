@@ -4,7 +4,6 @@ Table of Contents
    * [Arch](#arch)
       * [Example](#example)
       * [Post-installation](#post-installation)
-      * [i3](#i3)
    * [Installation](#installation)
 
 # Arch
