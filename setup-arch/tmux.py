@@ -79,7 +79,7 @@ class Tmux(Module):
             subprocess.run(
                 'git clone {} {}'.format(
                     GIT_TPM,
-                    str(GIT_HOME)
+                    str(GIT_HOME.joinpath('tpm'))
                 ),
                 shell=True,
                 check=True,
