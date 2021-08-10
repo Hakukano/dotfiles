@@ -4,6 +4,7 @@ from prompt_toolkit.formatted_text import HTML
 
 from tabulate import tabulate
 
+from gnome import Gnome
 from i3 import I3
 from neovim import NeoVim
 from nodejs import NodeJs
@@ -14,6 +15,7 @@ from tmux import Tmux
 from zsh import Zsh
 
 MODULES = {
+    'gnome': Gnome(),
     'i3': I3(),
     'neovim': NeoVim(),
     'nodejs': NodeJs(),
