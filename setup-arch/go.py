@@ -4,7 +4,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'go': 'sudo pacman -S go',
+    'go': 'sudo pacman -S --needed go',
 }
 
 DEPENDENCIES = [

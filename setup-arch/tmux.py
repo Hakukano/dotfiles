@@ -8,9 +8,9 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'tmux': 'sudo pacman -S tmux',
-    'xsel': 'sudo pacman -S xsel',
-    'xclip': 'sudo pacman -S xclip',
+    'tmux': 'sudo pacman -S --needed tmux',
+    'xsel': 'sudo pacman -S --needed xsel',
+    'xclip': 'sudo pacman -S --needed xclip',
 }
 
 DEPENDENCIES = [

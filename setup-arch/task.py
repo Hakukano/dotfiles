@@ -5,7 +5,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'task': 'sudo pacman -S taskwarrior-tui',
+    'task': 'sudo pacman -S --needed taskwarrior-tui',
 }
 
 DEPENDENCIES = [

@@ -4,7 +4,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'rustup': 'sudo pacman -S rustup && rustup install nightly',
+    'rustup': 'sudo pacman -S --needed rustup && rustup install nightly',
 }
 
 DEPENDENCIES = [

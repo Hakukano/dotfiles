@@ -10,7 +10,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'zsh': 'sudo pacman -S zsh',
+    'zsh': 'sudo pacman -S --needed zsh',
 }
 
 DEPENDENCIES = [

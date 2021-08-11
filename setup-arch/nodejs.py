@@ -5,8 +5,8 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'node': 'sudo pacman -S nodejs',
-    'npm': 'sudo pacman -S npm',
+    'node': 'sudo pacman -S --needed nodejs',
+    'npm': 'sudo pacman -S --needed npm',
 }
 
 DEPENDENCIES = [
