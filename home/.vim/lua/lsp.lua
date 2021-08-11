@@ -38,6 +38,9 @@ lspconfig.cssls.setup({
 lspconfig.dockerls.setup({
   on_attach = on_attach,
 })
+lspconfig.gopls.setup({
+  on_attach = on_attach,
+})
 lspconfig.html.setup({
   on_attach = on_attach,
 })

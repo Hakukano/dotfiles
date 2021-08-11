@@ -1,5 +1,6 @@
 from module import Module
 
+from go import Go
 from nodejs import NodeJs
 from rust import Rust
 
@@ -19,6 +20,7 @@ PROGRAMS = {
     'cmake': 'sudo pacman -S cmake',
     'texlab': 'sudo pacman -S texlive-core texlab',
     'zathura': 'sudo pacman -S zathura zathura-pdf-mupdf',
+    'gopls': 'sudo pacman -S gopls',
     'cmake-language-server': 'pip install cmake-language-server',
     'pyls': 'pip install "python-language-server[all]"',
     'bash-language-server': 'npm install -g bash-language-server',
@@ -35,6 +37,7 @@ PROGRAMS = {
 }
 
 DEPENDENCIES = [
+    Go(),
     NodeJs(),
     Rust(),
 ]
