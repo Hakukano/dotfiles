@@ -58,6 +58,13 @@ lspconfig.pylsp.setup({
 })
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      diagnostics = {
+        disabled = {"inactive-code"},
+      },
+    },
+  },
 })
 lspconfig.texlab.setup({
   on_attach = on_attach,
