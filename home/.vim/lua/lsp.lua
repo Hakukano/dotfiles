@@ -87,8 +87,8 @@ lspconfig.yamlls.setup({
   on_attach = on_attach,
   settings = {
     yaml = {
-      schemaStore = {
-        enable = true,
+      schemas = {
+        ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json'] = '/*openapi*.y?ml',
       },
     },
   },
