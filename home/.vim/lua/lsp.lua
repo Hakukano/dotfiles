@@ -85,4 +85,11 @@ lspconfig.vimls.setup({
 })
 lspconfig.yamlls.setup({
   on_attach = on_attach,
+  settings = {
+    yaml = {
+      schemaStore = {
+        enable = true,
+      },
+    },
+  },
 })
