@@ -10,10 +10,8 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'gnome-shell': 'sudo pacman -S --needed gnome noto-fonts-cjk',
-    'gnome-tweaks': 'sudo pacman -S --needed gnome-tweaks',
-    'dconf-editor': 'sudo pacman -S --needed dconf-editor',
-    'urxvt': 'sudo pacman -S --needed rxvt-unicode',
+    'gnome-tweaks': 'sudo apt-get install gnome-tweaks',
+    'urxvt': 'sudo apt-get install rxvt-unicode',
 }
 
 DEPENDENCIES = [
