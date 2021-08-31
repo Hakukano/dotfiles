@@ -1,12 +1,20 @@
+[com/github/donadigo/eddy]
+mime-types=['application/vnd.debian.binary-package', 'application/x-deb']
+window-x=25
+window-y=52
+
 [com/system76/hidpi]
 enable=false
-mode='lodpi'
+mode='hidpi'
 
 [io/elementary/appcenter/settings]
-last-refresh-time=int64 1630420981
+last-refresh-time=int64 1630428757
+window-maximized=false
+window-position=(804, 35)
+window-size=(788, 857)
 
 [org/gnome/control-center]
-last-panel='display'
+last-panel='keyboard'
 
 [org/gnome/desktop/app-folders/folders/Pop-Office]
 apps=['libreoffice-calc.desktop', 'libreoffice-draw.desktop', 'libreoffice-impress.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop']
@@ -32,16 +40,23 @@ secondary-color='#000000'
 
 [org/gnome/desktop/input-sources]
 current=uint32 0
+mru-sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
 per-window=false
-sources=[('xkb', 'us')]
+sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
 xkb-options=['caps:ctrl_modifier']
 
 [org/gnome/desktop/interface]
-gtk-im-module='gtk-im-context-simple'
+gtk-im-module='ibus'
 show-battery-percentage=true
 
 [org/gnome/desktop/notifications]
-application-children=['io-elementary-appcenter']
+application-children=['io-elementary-appcenter', 'com-github-donadigo-eddy', 'com-microsoft-teams']
+
+[org/gnome/desktop/notifications/application/com-github-donadigo-eddy]
+application-id='com.github.donadigo.eddy.desktop'
+
+[org/gnome/desktop/notifications/application/com-microsoft-teams]
+application-id='com.microsoft.Teams.desktop'
 
 [org/gnome/desktop/notifications/application/firefox]
 application-id='firefox.desktop'
@@ -51,7 +66,7 @@ application-id='io.elementary.appcenter.desktop'
 
 [org/gnome/desktop/peripherals/touchpad]
 natural-scroll=true
-speed=0.0073529411764705621
+speed=0.52205882352941169
 tap-to-click=false
 two-finger-scrolling-enabled=true
 
@@ -74,8 +89,8 @@ move-to-workspace-1=['<Shift><Super>exclam']
 move-to-workspace-2=['<Shift><Super>at']
 move-to-workspace-3=['<Shift><Super>numbersign']
 move-to-workspace-4=['<Shift><Super>dollar']
-switch-input-source=@as []
-switch-input-source-backward=@as []
+switch-input-source=['<Super>BackSpace']
+switch-input-source-backward=['<Shift><Super>BackSpace']
 switch-to-workspace-1=['<Super>1']
 switch-to-workspace-2=['<Super>2']
 switch-to-workspace-3=['<Super>3']
@@ -132,3 +147,17 @@ toggle-overview=@as []
 
 [org/gnome/system/location]
 enabled=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=150
+sort-column='name'
+sort-directories-first=true
+sort-order='ascending'
+type-format='category'
+window-position=(26, 27)
+window-size=(1096, 822)
