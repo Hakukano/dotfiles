@@ -12,7 +12,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'nvim': 'yay -S neovim-git && pip install neovim',
+    'nvim': 'sudo pacman -S --needed neovim && pip install neovim',
     'ag': 'sudo pacman -S --needed the_silver_searcher',
     'rg': 'cargo install ripgrep --features="pcre2"',
     'clang': 'sudo pacman -S --needed clang',
