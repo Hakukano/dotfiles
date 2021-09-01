@@ -15,10 +15,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'i3':
-        'sudo pacman -S --needed i3 bind noto-fonts && '
-        'yay -S ttf-linux-libertine ttf-dejavu '
-        'ttf-inconsolata ttf-ubuntu-font-family ',
+    'i3': 'sudo pacman -S --needed i3 bind',
     'Xorg': 'sudo pacman -S --needed xorg-server xorg-xinit',
     'acpi': 'sudo pacman -S --needed acpi',
     'alsamixer': 'sudo pacman -S --needed alsa-utils',
@@ -27,11 +24,11 @@ PROGRAMS = {
     'i3lock-fancy': 'yay -S i3lock-color-git i3lock-fancy-git',
     'mpd': 'sudo pacman -S --needed mpd',
     'picom': 'yay -S picom-ibhagwan-git',
-    'polybar': 'yay -S polybar ttf-freefont ttf-ms-fonts',
+    'polybar': 'yay -S polybar',
     'pulseaudio': 'sudo pacman -S --needed pulseaudio-alsa',
-    'rofi': 'sudo pacman -S --needed rofi noto-fonts-cjk noto-fonts-emoji',
+    'rofi': 'sudo pacman -S --needed rofi',
     'scrot': 'sudo pacman -S --needed scrot',
-    'urxvt': 'sudo pacman -S --needed rxvt-unicode ttf-hack',
+    'urxvt': 'sudo pacman -S --needed rxvt-unicode',
 }
 
 DEPENDENCIES = [
