@@ -1,3 +1,4 @@
+import subprocess
 from module import Module
 
 CONFIGS = [
