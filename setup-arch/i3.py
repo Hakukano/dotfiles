@@ -39,8 +39,26 @@ class I3(Module):
     def __init__(self):
         super().__init__(
             'i3',
-            'I3 setup, run fc-cache later!',
+            'I3 setup',
             CONFIGS,
             PROGRAMS,
             DEPENDENCIES,
         )
+
+    def install(self):
+        super().install()
+        print('[INFO] Running fc-cache')
+        try:
+            subprocess.run(
+                'fc-cache',
+                shell=True,
+                check=True,
+            )
+            print('[INFO] Done!')
+        except subprocess.CalledProcessError:
+            print(
+                '[{}ERRO{}] Cannot call fc-cache'.format(
+                    ANSI_ERROR,
+                    ANSI_CLEAR,
+                )
+            )

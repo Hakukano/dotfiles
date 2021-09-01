@@ -21,8 +21,26 @@ class Zsh(Module):
     def __init__(self):
         super().__init__(
             'zsh',
-            'zsh + zgen, run chsh -s /bin/zsh later!',
+            'zsh + zgen',
             CONFIGS,
             PROGRAMS,
             DEPENDENCIES,
         )
+
+    def install(self):
+        super().install()
+        print('[INFO] Running chsh')
+        try:
+            subprocess.run(
+                'chsh -s /bin/zsh',
+                shell=True,
+                check=True,
+            )
+            print('[INFO] Done!')
+        except subprocess.CalledProcessError:
+            print(
+                '[{}ERRO{}] Cannot call chsh'.format(
+                    ANSI_ERROR,
+                    ANSI_CLEAR,
+                )
+            )
