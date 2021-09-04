@@ -15,6 +15,7 @@ PROGRAMS = {
     'nvim': 'sudo pacman -S --needed neovim && pip install neovim',
     'ag': 'sudo pacman -S --needed the_silver_searcher',
     'rg': 'cargo install ripgrep --features="pcre2"',
+    'rust-analyzer': 'yay -S --needed rust-analyzer-git',
     'clang': 'sudo pacman -S --needed clang',
     'cscope': 'sudo pacman -S --needed cscope',
     'cmake': 'sudo pacman -S --needed cmake',

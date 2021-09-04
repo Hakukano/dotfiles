@@ -14,6 +14,7 @@ PROGRAMS = {
     'nvim': 'sudo add-apt-repository ppa:neovim-ppa/unstable && sudo apt-get update && sudo apt-get install neovim python3-neovim',
     'ag': 'sudo apt-get install silversearcher-ag',
     'rg': 'cargo install ripgrep --features="pcre2"',
+    'rust-analyzer': 'curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer && chmod +x ~/.local/bin/rust-analyzer',
     'clang': 'sudo apt-get install clang',
     'cscope': 'sudo apt-get install cscope',
     'cmake': 'sudo apt-get install cmake',
