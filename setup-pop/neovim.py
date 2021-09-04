@@ -21,7 +21,7 @@ PROGRAMS = {
     'texlab': 'sudo apt-get install texlive && cargo install --git https://github.com/latex-lsp/texlab.git --locked',
     'zathura': 'sudo apt-get install zathura zathura-pdf-poppler',
     'cmake-language-server': 'pip install cmake-language-server',
-    'pyls': 'pip install "python-language-server[all]"',
+    'pylsp': 'pip install python-lsp-server',
     'bash-language-server': 'npm install -g bash-language-server',
     'docker-langserver': 'npm install -g dockerfile-language-server-nodejs',
     'css-languageserver': 'npm install -g vscode-css-languageserver-bin',
