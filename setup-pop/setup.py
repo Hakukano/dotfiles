@@ -47,7 +47,7 @@ def modules_to_completion():
 PROMT_CMD = HTML('<orange>cmd</orange> => ')
 
 INTRO = HTML('''
-    <cyan>Welcome to Hakukano's dotfiles setup for Arch Linux!</cyan>
+    <cyan>Welcome to Hakukano's dotfiles setup for Pop!_OS!</cyan>
     <br/>
     <p>Enter <b>help</b> to see available commands</p>
 ''')
