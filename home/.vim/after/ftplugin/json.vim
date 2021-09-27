@@ -1,1 +1,1 @@
-setlocal foldmethod=syntax
+
