@@ -85,7 +85,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 if has('nvim')
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-  Plug 'mfulz/cscope.nvim'
 endif
 if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
