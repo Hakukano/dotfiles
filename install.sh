@@ -19,6 +19,12 @@ case "${os}" in
     python setup.py
     popd
     ;;
+  'debian')
+    pushd ./setup-debian
+    pip install -r requirements.txt
+    python setup.py
+    popd
+    ;;
   'pop')
     pushd ./setup-pop
     pip install -r requirements.txt
