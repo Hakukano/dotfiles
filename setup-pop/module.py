@@ -141,7 +141,7 @@ class Module:
                     dst,
                     ANSI_CLEAR,
                 )
-            if dst.readlink() != src:
+            if dst.is_symlink() and dst.readlink() != src:
                 linked = '{}{} links to wrong target{}'.format(
                     ANSI_WARNING,
                     dst,
