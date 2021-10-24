@@ -30,6 +30,7 @@ PROGRAMS = {
     'rofi': 'sudo pacman -S --needed rofi',
     'scrot': 'sudo pacman -S --needed scrot',
     'urxvt': 'sudo pacman -S --needed rxvt-unicode',
+    'xdotool': 'sudo pacman -S --needed xdotool',
     'xlayoutdisplay': 'yay -S --needed xlayoutdisplay',
 }
 

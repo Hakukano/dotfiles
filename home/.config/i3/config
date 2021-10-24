@@ -4,6 +4,10 @@ set $mod Mod4
 # Turn borders off
 for_window [class="^.*"] border pixel 0
 
+# Always float certain windows
+for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
 # Change gap size
 gaps outer 4
 gaps inner 20
@@ -113,9 +117,61 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Always float certain windows
-for_window [class="mpv"] floating enable
-for_window [class="Pavucontrol"] floating enable
+# mouse mode
+bindsym $mod+Ctrl+Shift+m mode "mouse"
+mode "mouse" {
+	set $slow 10
+	set $quick 25
+	set $fast 50
+
+	# Mouse movement (slow/fine-tuned) -- vim keybindings
+	bindsym Shift+h exec xdotool mousemove_relative -- -$slow 0
+	bindsym Shift+j exec xdotool mousemove_relative 0 $slow
+	bindsym Shift+k exec xdotool mousemove_relative -- 0 -$slow
+	bindsym Shift+l exec xdotool mousemove_relative $slow 0
+
+	# Mouse movement (quicker) -- vim keybindings
+	bindsym h exec xdotool mousemove_relative -- -$quick 0
+	bindsym j exec xdotool mousemove_relative 0 $quick
+	bindsym k exec xdotool mousemove_relative -- 0 -$quick
+	bindsym l exec xdotool mousemove_relative $quick 0
+
+	# Mouse movement (fast) -- vim keybindings
+	bindsym Ctrl+h exec xdotool mousemove_relative -- -$fast 0
+	bindsym Ctrl+j exec xdotool mousemove_relative 0 $fast
+	bindsym Ctrl+k exec xdotool mousemove_relative -- 0 -$fast
+	bindsym Ctrl+l exec xdotool mousemove_relative $fast 0
+
+	# Left Click
+	bindsym f exec xdotool click 1
+
+	# Middle Click
+	bindsym d exec xdotool click 2
+
+	# Right Click
+	bindsym s exec xdotool click 3
+
+	# Left Click-and-drag
+	bindsym Shift+f exec xdotool mousedown 1
+
+	# Middle Click-and-drag 
+	bindsym Shift+d exec xdotool mousedown 2
+
+	# Right Click-and-drag
+	bindsym Shift+s exec xdotool mousedown 3
+
+	# Left Drag release
+	bindsym Ctrl+f exec xdotool mouseup 1
+
+	# Middle Drag release
+	bindsym Ctrl+d exec xdotool mouseup 2
+
+	# Right Drag release
+	bindsym Ctrl+s exec xdotool mouseup 3
+
+	# return to normal keybindings -- IMPORTANT!!
+	bindsym Escape mode "default"
+}
 
 # map caps lock to ctrl
 exec --no-startup-id setxkbmap -option ctrl:nocaps
