@@ -23,12 +23,22 @@ doall() {
       yay --noconfirm -Sc
       yay --noconfirm -Qdtq | yay --noconfirm -Rs -
     fi
-    sudo snap refresh
-    npm -g install npm
-    npm -g update
-    rustup update
-    stack upgrade && stack update
-    nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
+    if command -v snap > /dev/null; then
+      sudo snap refresh
+    fi
+    if command -v npm > /dev/null; then
+      npm -g install npm
+      npm -g update
+    fi
+    if command -v yarn > /dev/null; then
+      yarn global upgrade
+    fi
+    if command -v rustup > /dev/null; then
+      rustup update
+    fi
+    if command -v nvim > /dev/null; then
+      nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
+    fi
   elif [[ ${1} == "gpl" ]]; then
     for dir in `ls`; do
       [[ -d ${dir} ]] || continue
