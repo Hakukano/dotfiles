@@ -16,4 +16,8 @@ if command -v ibus-daemon > /dev/null; then
   ibus-daemon -drx --xim
 fi
 
+if command -v xlayoutdisplay > /dev/null; then
+  xlayoutdisplay
+fi
+
 exec i3
