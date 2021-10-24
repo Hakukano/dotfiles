@@ -176,6 +176,8 @@ makepkg -si
 sudo pacman -S openssh
 ssh-keygen
 sudo ssh-keygen -A
+sudo systemctl start sshd
+sudo systemctl enable sshd
 ```
 
 # Installation
