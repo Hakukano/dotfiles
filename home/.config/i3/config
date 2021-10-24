@@ -120,7 +120,7 @@ bindsym $mod+Shift+r restart
 # mouse mode
 bindsym $mod+Ctrl+Shift+m mode "mouse"
 mode "mouse" {
-	set $slow 10
+	set $slow 5
 	set $quick 25
 	set $fast 50
 

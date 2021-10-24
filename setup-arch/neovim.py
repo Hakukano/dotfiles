@@ -24,17 +24,15 @@ PROGRAMS = {
     'gopls': 'sudo pacman -S --needed gopls',
     'cmake-language-server': 'pip install cmake-language-server',
     'pylsp': 'pip install python-lsp-server',
-    'bash-language-server': 'npm install -g bash-language-server',
-    'docker-langserver': 'npm install -g dockerfile-language-server-nodejs',
-    'css-languageserver': 'npm install -g vscode-css-languageserver-bin',
-    'html-languageserver': 'npm install -g vscode-html-languageserver-bin',
-    'vscode-json-languageserver': 'npm install -g vscode-json-languageserver',
+    'bash-language-server': 'yarn global add bash-language-server',
+    'docker-langserver': 'yarn global add dockerfile-language-server-nodejs',
+    'css-languageserver': 'yarn global add vscode-css-languageserver-bin',
+    'html-languageserver': 'yarn global add vscode-html-languageserver-bin',
+    'vscode-json-languageserver': 'yarn global add vscode-json-languageserver',
     'typescript-language-server':
-        'npm install -g typescript typescript-language-server',
-    'vim-language-server': 'npm install -g vim-language-server',
-    'yaml-language-server': 'npm install -g yaml-language-server',
-    'purescript-language-server': 'npm install -g purescript-language-server',
-    'purty': 'npm install -g purty'
+        'yarn global add typescript typescript-language-server',
+    'vim-language-server': 'yarn global add vim-language-server',
+    'yaml-language-server': 'yarn global add yaml-language-server',
 }
 
 DEPENDENCIES = [

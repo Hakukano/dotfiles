@@ -21,6 +21,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm/bin:$PATH"
 export PATH="$HOME/.scripts:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 local_path=~/.settings/path

@@ -50,9 +50,6 @@ lspconfig.jdtls.setup({
 lspconfig.jsonls.setup({
   on_attach = on_attach,
 })
-lspconfig.purescriptls.setup({
-  on_attach = on_attach,
-})
 lspconfig.pylsp.setup({
   on_attach = on_attach,
 })
