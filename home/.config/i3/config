@@ -1,4 +1,5 @@
 # Set mod variable to super key
+set $alt Mod1
 set $mod Mod4
 
 # Turn borders off
@@ -178,6 +179,10 @@ exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 # start dunst
 exec --no-startup-id dunst
+# dunstctl binding
+bindsym $mod+$alt+c exec dunstctl close
+bindsym $mod+$alt+h exec dunstctl history-pop
+bindsym $mod+$alt+o exec dunstctl context
 
 # Allow scripts to interface with dbus
 exec_always --no-startup-id ~/.dbus/xdbus.sh
