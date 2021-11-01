@@ -47,7 +47,6 @@ load-starter-plugin-list() {
     zgen load unixorn/autoupdate-zgen
     zgen load unixorn/git-extra-commands
     zgen load unixorn/warhol.plugin.zsh
-    zgen load zdharma/zsh-diff-so-fancy
     zgen load zsh-users/zsh-syntax-highlighting
     # >>>>
 
