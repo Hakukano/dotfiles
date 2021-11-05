@@ -10,7 +10,19 @@ if [[ ! `command -v pip3` ]]; then
   exit 1
 fi
 
-os=`awk -F= '/^ID=/{print $2}' /etc/os-release`
+un=`uname`
+os='unknown'
+case "$un" in
+  'Linux')
+    os=`awk -F= '/^ID=/{print $2}' /etc/os-release`
+    ;;
+  'Darwin')
+    os='macos'
+    ;;
+  *)
+    echo 'Unsupported Unix:' ${un}
+    ;;
+esac
 
 case "${os}" in
   'arch')
@@ -27,6 +39,12 @@ case "${os}" in
     ;;
   'pop')
     pushd ./setup-pop
+    pip install -r requirements.txt
+    python setup.py
+    popd
+    ;;
+  'macos')
+    pushd ./setup-macos
     pip install -r requirements.txt
     python setup.py
     popd
