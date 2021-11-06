@@ -26,6 +26,10 @@ doall() {
     if command -v snap > /dev/null; then
       sudo snap refresh
     fi
+    if command -v brew > /dev/null; then
+      brew upgrade
+      brew upgrade --cask
+    fi
     if command -v npm > /dev/null; then
       npm -g install npm
       npm -g update
