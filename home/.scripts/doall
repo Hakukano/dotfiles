@@ -10,35 +10,51 @@ doall() {
     cd ~/Git && doall gpl
     cd ~
     if command -v apt > /dev/null; then
+      echo '<<<< APT'
       sudo apt update && sudo apt dist-upgrade -y --allow-downgrades && sudo apt auto-remove -y && sudo apt auto-clean
+      echo '>>>>'
     fi
     if command -v pacman > /dev/null; then
+      echo '<<<< PACMAN'
       sudo pacman --noconfirm -Syu
       sudo pacman --noconfirm -Sc
       sudo pacman --noconfirm -Qdtq | sudo pacman --noconfirm -Rs -
+      echo '>>>>'
     fi
     if command -v yay > /dev/null; then
+      echo '<<<< YAY'
       yay -Y --gendb
       yay --noconfirm -Syu --devel
       yay --noconfirm -Sc
       yay --noconfirm -Qdtq | yay --noconfirm -Rs -
+      echo '>>>>'
     fi
     if command -v snap > /dev/null; then
+      echo '<<<< SNAP'
       sudo snap refresh
+      echo '>>>>'
     fi
     if command -v brew > /dev/null; then
+      echo '<<<< BREW'
       brew upgrade
       brew upgrade --cask
+      echo '>>>>'
     fi
     if command -v npm > /dev/null; then
+      echo '<<<< NPM'
       npm -g install npm
       npm -g update
+      echo '>>>>'
     fi
     if command -v yarn > /dev/null; then
+      echo '<<<< YARN'
       yarn global upgrade
+      echo '>>>>'
     fi
     if command -v rustup > /dev/null; then
+      echo '<<<< RUSTUP'
       rustup update
+      echo '>>>>'
     fi
     if command -v nvim > /dev/null; then
       nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
