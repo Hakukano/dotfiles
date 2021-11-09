@@ -57,6 +57,9 @@ lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   settings = {
     ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
       diagnostics = {
         disabled = {"inactive-code"},
       },
