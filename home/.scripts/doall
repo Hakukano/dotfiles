@@ -57,7 +57,7 @@ doall() {
       echo '>>>>'
     fi
     if command -v nvim > /dev/null; then
-      nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
+      nvim '+PlugClean' '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
     fi
   elif [[ ${1} == "gpl" ]]; then
     for dir in `ls`; do

@@ -1,9 +1,53 @@
-local completion = require('completion')
+-- Setup nvim-cmp start
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+    end,
+  },
+  mapping = {
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {}),
+  preselect = cmp.PreselectMode.None,
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+-- Setup nvim-cmp end
+
 local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local on_attach = function(client, bufnr)
-  completion.on_attach(client, bufnr)
-
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
   vim.api.nvim_set_keymap("n", "<leader>lb", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
@@ -24,36 +68,47 @@ local on_attach = function(client, bufnr)
 end
 
 lspconfig.bashls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.clangd.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.cmake.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.cssls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.dockerls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.gopls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.html.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.jdtls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.jsonls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.pylsp.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.rust_analyzer.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
   settings = {
     ["rust-analyzer"] = {
@@ -67,6 +122,7 @@ lspconfig.rust_analyzer.setup({
   },
 })
 lspconfig.texlab.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
   settings = {
     latex = {
@@ -78,12 +134,15 @@ lspconfig.texlab.setup({
   },
 })
 lspconfig.tsserver.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.vimls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
 })
 lspconfig.yamlls.setup({
+  capabilities = capabilities,
   on_attach = on_attach,
   settings = {
     yaml = {
