@@ -2,6 +2,7 @@ from module import Module
 
 from go import Go
 from nodejs import NodeJs
+from ruby import Ruby
 from rust import Rust
 
 CONFIGS = [
@@ -19,7 +20,7 @@ PROGRAMS = {
     'clang': 'brew install llvm',
     'texlab': 'brew install texlab',
     'gopls': 'brew install gopls',
-    'solargraph': 'brew install solargraph',
+    'solargraph': 'gem install solargraph',
     'cmake-language-server': 'pip install cmake-language-server',
     'pylsp': 'pip install python-lsp-server',
     'bash-language-server': 'yarn global add bash-language-server',
@@ -36,6 +37,7 @@ PROGRAMS = {
 DEPENDENCIES = [
     Go(),
     NodeJs(),
+    Ruby(),
     Rust(),
 ]
 
