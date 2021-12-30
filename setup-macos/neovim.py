@@ -19,7 +19,6 @@ PROGRAMS = {
     'clang': 'brew install llvm',
     'texlab': 'brew install texlab',
     'gopls': 'brew install gopls',
-    'solargraph': 'brew install solargraph',
     'cmake-language-server': 'pip install cmake-language-server',
     'pylsp': 'pip install python-lsp-server',
     'bash-language-server': 'yarn global add bash-language-server',

@@ -8,8 +8,6 @@ from go import Go
 from kitty import Kitty
 from neovim import NeoVim
 from nodejs import NodeJs
-from asdf import Asdf
-from ruby import Ruby
 from rust import Rust
 from scripts import Scripts
 from tmux import Tmux
@@ -20,8 +18,6 @@ MODULES = {
     'kitty': Kitty(),
     'neovim': NeoVim(),
     'nodejs': NodeJs(),
-    'asdf': Asdf(),
-    'ruby': Ruby(),
     'rust': Rust(),
     'scripts': Scripts(),
     'tmux': Tmux(),
