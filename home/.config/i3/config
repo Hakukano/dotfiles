@@ -10,9 +10,9 @@ for_window [class="mpv"] floating enable
 for_window [class="Pavucontrol"] floating enable
 
 # Change gap size
-gaps outer 4
-gaps inner 20
-gaps top 62
+gaps outer 5
+gaps inner 5
+gaps top 46
 
 # Drag floating windows
 floating_modifier $mod
