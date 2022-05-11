@@ -1,6 +1,4 @@
 ;; Neotree
-(unless (package-installed-p 'neotree)
-  (package-install 'neotree))
 (require 'neotree)
 
 ;; Theme

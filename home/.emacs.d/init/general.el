@@ -1,6 +1,4 @@
 ;; General
-(unless (package-installed-p 'general)
-  (package-install 'general))
 (require 'general)
 
 ;; Evil Integration
