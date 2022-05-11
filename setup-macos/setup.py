@@ -4,7 +4,6 @@ from prompt_toolkit.formatted_text import HTML
 
 from tabulate import tabulate
 
-from emacs import Emacs
 from go import Go
 from kitty import Kitty
 from neovim import NeoVim
@@ -15,7 +14,6 @@ from tmux import Tmux
 from zsh import Zsh
 
 MODULES = {
-    'emacs': Emacs(),
     'go': Go(),
     'kitty': Kitty(),
     'neovim': NeoVim(),

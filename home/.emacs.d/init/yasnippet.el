@@ -1,2 +1,0 @@
-;; Yasnippet
-(require 'yasnippet)

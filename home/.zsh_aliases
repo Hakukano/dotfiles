@@ -79,6 +79,3 @@ alias listened='sudo lsof -i -P -n | rg LISTEN'
 
 # tar
 alias untar='tar -xvf'
-
-# emacs
-alias em='emacs'
