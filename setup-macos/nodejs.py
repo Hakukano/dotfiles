@@ -1,15 +1,18 @@
 from module import Module
 
+from asdf import Asdf
+
 CONFIGS = [
     '.npmrc'
 ]
 
 PROGRAMS = {
-    'node': 'brew install node',
+    'node': 'asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs latest',
     'yarn': 'npm install -g yarn; yarn config set prefix ~/.yarn',
 }
 
 DEPENDENCIES = [
+    Asdf(),
 ]
 
 
