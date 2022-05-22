@@ -1,4 +1,5 @@
 let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.o$', '\.DS_Store$']
 nnoremap <Leader>ntf :NERDTreeFocus<CR>
 
 augroup nerdtree
