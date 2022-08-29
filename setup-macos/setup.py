@@ -6,7 +6,6 @@ from tabulate import tabulate
 
 from asdf import Asdf
 from go import Go
-from kitty import Kitty
 from neovim import NeoVim
 from nodejs import NodeJs
 from rust import Rust
@@ -16,7 +15,6 @@ from zsh import Zsh
 
 MODULES = {
     'asdf': Asdf(),
-    'kitty': Kitty(),
     'neovim': NeoVim(),
     'nodejs': NodeJs(),
     'rust': Rust(),
