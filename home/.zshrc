@@ -23,6 +23,9 @@ export PATH="$HOME/.npm/bin:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+if type brew &>/dev/null; then
+  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
 
 local_path=~/.settings/path
 if [[ -f $local_path ]]; then
