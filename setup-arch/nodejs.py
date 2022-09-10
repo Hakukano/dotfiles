@@ -5,8 +5,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'node': 'sudo pacman -S --needed nodejs',
-    'npm': 'sudo pacman -S --needed npm',
+    'node': 'asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs latest',
     'yarn': 'npm install -g yarn; yarn config set prefix ~/.yarn',
 }
 
