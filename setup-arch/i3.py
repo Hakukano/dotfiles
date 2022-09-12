@@ -25,7 +25,7 @@ PROGRAMS = {
     'i3lock-fancy': 'yay -S --needed i3lock-color-git i3lock-fancy-git',
     'mpd': 'sudo pacman -S --needed mpd',
     'picom': 'yay -S --needed picom-ibhagwan-git',
-    'pipewire': 'sudo pacman -S --needed pipewire-alsa',
+    'pipewire': 'sudo pacman -S --needed pipewire-alsa pipewire-pulse && systemctl --user enable pipewire-pulse',
     'polybar': 'yay -S --needed polybar',
     'rofi': 'sudo pacman -S --needed rofi',
     'scrot': 'sudo pacman -S --needed scrot',
