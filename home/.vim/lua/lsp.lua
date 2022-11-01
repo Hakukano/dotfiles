@@ -118,6 +118,9 @@ lspconfig.rust_analyzer.setup({
       diagnostics = {
         disabled = {"inactive-code"},
       },
+      checkOnSave = {
+        command = "clippy",
+      },
     },
   },
 })
