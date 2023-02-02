@@ -128,6 +128,11 @@ lspconfig.solargraph.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
+lspconfig.sourcekit.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "swift", "objective-c", "objective-cpp" },
+})
 lspconfig.texlab.setup({
   capabilities = capabilities,
   on_attach = on_attach,
