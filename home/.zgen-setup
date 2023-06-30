@@ -9,10 +9,11 @@ if [[ ! -f $ZGEN_PARENT_DIR/zgen/zgen.zsh ]]; then
         mkdir -p "$ZGEN_PARENT_DIR"
     fi
     pushd $ZGEN_PARENT_DIR
-    git clone https://github.com/Hakukano/zgen.git
+    git clone https://github.com/jandamm/zgenom.git zgen
     popd
 fi
-source $ZGEN_PARENT_DIR/zgen/zgen.zsh
+source $ZGEN_PARENT_DIR/zgen/zgenom.zsh
+function zgen() zgenom $@
 unset ZGEN_PARENT_DIR
 
 load-starter-plugin-list() {
