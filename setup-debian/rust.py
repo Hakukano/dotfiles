@@ -4,7 +4,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'rustup': 'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh && rustup install nightly',
+    'cargo': 'asdf plugin add rust && asdf install rust stable && asdf global rust stable',
 }
 
 DEPENDENCIES = [

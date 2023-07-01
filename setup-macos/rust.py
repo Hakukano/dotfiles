@@ -1,13 +1,16 @@
 from module import Module
 
+from asdf import Asdf
+
 CONFIGS = [
 ]
 
 PROGRAMS = {
-    'rustup': 'brew install rustup-init && rustup-init',
+    'cargo': 'asdf plugin add rust && asdf install rust stable && asdf global rust stable',
 }
 
 DEPENDENCIES = [
+    Asdf(),
 ]
 
 

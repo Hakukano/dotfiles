@@ -4,7 +4,7 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'rustup': 'sudo pacman -S --needed rustup && rustup install nightly',
+    'cargo': 'asdf plugin add rust && asdf install rust stable && asdf global rust stable',
 }
 
 DEPENDENCIES = [
