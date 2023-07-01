@@ -1,7 +1,7 @@
 from module import Module
 
-from nodejs import NodeJs
-from rust import Rust
+from debian.nodejs import NodeJs
+from debian.rust import Rust
 
 CONFIGS = [
     '.config/nvim',

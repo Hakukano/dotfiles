@@ -1,24 +1,34 @@
+import sys
+
 from prompt_toolkit import print_formatted_text, prompt, PromptSession
 from prompt_toolkit.completion import NestedCompleter
 from prompt_toolkit.formatted_text import HTML
 
 from tabulate import tabulate
 
-from neovim import NeoVim
-from nodejs import NodeJs
-from rust import Rust
-from scripts import Scripts
-from tmux import Tmux
-from zsh import Zsh
+from arch.install import MODULES as arch_modules
+from debian.install import MODULES as debian_modules
+from macos.install import MODULES as macos_modules
+from pop.install import MODULES as pop_modules
 
-MODULES = {
-    'neovim': NeoVim(),
-    'nodejs': NodeJs(),
-    'rust': Rust(),
-    'scripts': Scripts(),
-    'tmux': Tmux(),
-    'zsh': Zsh(),
-}
+if len(sys.argv) < 2:
+    print(f'Wrong arguments number: {sys.argv}')
+    exit(1)
+
+os_name = sys.argv[1]
+
+MODULES = {}
+if os_name == 'arch':
+    MODULES = arch_modules
+elif os_name == 'debian':
+    MODULES = debian_modules
+elif os_name == 'macos':
+    MODULES = macos_modules
+elif os_name == 'pop':
+    MODULES = pop_modules
+else:
+    print(f'Unknown OS type {os_name}')
+    exit(2)
 
 MODULE_TABLE_HEADER = [
     'Name',
@@ -45,7 +55,7 @@ def modules_to_completion():
 PROMT_CMD = HTML('<orange>cmd</orange> => ')
 
 INTRO = HTML('''
-    <cyan>Welcome to Hakukano's dotfiles setup for Debian</cyan>
+    <cyan>Welcome to Hakukano's dotfiles setup for Arch Linux!</cyan>
     <br/>
     <p>Enter <b>help</b> to see available commands</p>
 ''')

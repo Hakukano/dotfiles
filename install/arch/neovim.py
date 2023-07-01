@@ -1,8 +1,8 @@
 from module import Module
 
-from go import Go
-from nodejs import NodeJs
-from rust import Rust
+from arch.go import Go
+from arch.nodejs import NodeJs
+from arch.rust import Rust
 
 CONFIGS = [
     '.config/nvim',
@@ -12,13 +12,16 @@ CONFIGS = [
 ]
 
 PROGRAMS = {
-    'nvim': 'brew install neovim',
-    'ag': 'brew install the_silver_searcher',
+    'nvim': 'sudo pacman -S --needed neovim && pip install neovim',
+    'ag': 'sudo pacman -S --needed the_silver_searcher',
     'rg': 'cargo install ripgrep --features="pcre2"',
-    'rust-analyzer': 'brew install rust-analyzer',
-    'clang': 'brew install llvm',
-    'texlab': 'brew install texlab',
-    'gopls': 'brew install gopls',
+    'rust-analyzer': 'yay -S --needed rust-analyzer-git',
+    'clang': 'sudo pacman -S --needed clang',
+    'cscope': 'sudo pacman -S --needed cscope',
+    'cmake': 'sudo pacman -S --needed cmake',
+    'texlab': 'sudo pacman -S --needed texlive-core texlab',
+    'zathura': 'sudo pacman -S --needed zathura zathura-pdf-mupdf',
+    'gopls': 'sudo pacman -S --needed gopls',
     'cmake-language-server': 'pip install cmake-language-server',
     'pylsp': 'pip install python-lsp-server',
     'bash-language-server': 'yarn global add bash-language-server',

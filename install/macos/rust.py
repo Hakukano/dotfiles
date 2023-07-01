@@ -1,6 +1,6 @@
 from module import Module
 
-from asdf import Asdf
+from macos.asdf import Asdf
 
 CONFIGS = [
 ]

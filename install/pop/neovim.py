@@ -1,7 +1,7 @@
 from module import Module
 
-from nodejs import NodeJs
-from rust import Rust
+from pop.nodejs import NodeJs
+from pop.rust import Rust
 
 CONFIGS = [
     '.config/nvim',

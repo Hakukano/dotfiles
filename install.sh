@@ -24,33 +24,8 @@ case "$un" in
     ;;
 esac
 
-case "${os}" in
-  'arch')
-    pushd ./setup-arch
-    pip install -r requirements.txt
-    python setup.py
-    popd
-    ;;
-  'debian')
-    pushd ./setup-debian
-    pip install -r requirements.txt
-    python setup.py
-    popd
-    ;;
-  'pop')
-    pushd ./setup-pop
-    pip install -r requirements.txt
-    python setup.py
-    popd
-    ;;
-  'macos')
-    pushd ./setup-macos
-    pip install -r requirements.txt
-    python setup.py
-    popd
-    ;;
-  *)
-    echo 'Unsupported OS:' ${os}
-    ;;
-esac
+pushd ./install
+pip install -r requirements.txt
+python install.py "${os}"
+popd
 
