@@ -13,6 +13,9 @@ export COMPLETION_WAITING_DOTS="true"
 # Default editor
 export EDITOR=nvim
 
+# Cargo home
+export CARGO_INSTALL_ROOT="$HOME/.cargo"
+
 # Base PATH
 PATH="$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin"
 
@@ -156,7 +159,5 @@ if [[ -f $local_function ]]; then
 fi
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-exists thefuck && eval `thefuck --alias`
 
 command -v startx > /dev/null && systemctl -q is-active graphical.target && [[ -z ${DISPLAY} && ${XDG_VTNR} -eq 1 ]] && exec startx
