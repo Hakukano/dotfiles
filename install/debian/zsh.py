@@ -12,6 +12,7 @@ CONFIGS = [
 
 PROGRAMS = {
     'zsh': 'sudo apt-get install zsh',
+    'curl': 'sudo apt-get install curl',
 }
 
 DEPENDENCIES = [
