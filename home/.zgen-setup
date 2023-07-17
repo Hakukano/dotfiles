@@ -84,7 +84,7 @@ if [[ -L ~/.zgen-setup ]]; then
     REAL_ZGEN_SETUP="`readlink ~/.zgen-setup`"
 fi
 
-if [ `get_file_modification_time ${REAL_ZGEN_SETUP}` -gt `get_file_modification_time ~/.zgen/init.zsh` ]; then
+if [ `get_file_modification_time ${REAL_ZGEN_SETUP}` -gt `get_file_modification_time ~/Git/zgen/sources/init.zsh` ]; then
     echo "`basename ${REAL_ZGEN_SETUP}` updated; creating a new init.zsh from plugin list in ${REAL_ZGEN_SETUP}"
     setup-zgen-repos
 fi

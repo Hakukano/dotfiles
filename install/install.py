@@ -20,7 +20,7 @@ os_name = sys.argv[1]
 MODULES = {}
 if os_name == 'arch':
     MODULES = arch_modules
-elif os_name == 'debian':
+elif os_name == 'debian' or os_name == 'ubuntu':
     MODULES = debian_modules
 elif os_name == 'macos':
     MODULES = macos_modules
