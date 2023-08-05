@@ -1,0 +1,56 @@
+filetype plugin indent on
+syntax on
+
+let mapleader = ','
+
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set encoding=utf-8
+set expandtab
+set gdefault
+set guioptions-=L
+set guioptions-=T
+set guioptions-=m
+set guioptions-=r
+set hlsearch
+set incsearch
+set nocompatible
+set number
+set relativenumber
+set shiftwidth=0
+set smartindent
+set smarttab
+set tabstop=2
+set timeoutlen=2000
+set wildmenu
+
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+nnoremap <C-C> <C-W><C-C>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <silent> - :bdelete<CR>
+nnoremap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> <CR> :w<CR>
+nnoremap <silent> <S-Tab> :bp<CR>
+nnoremap <silent> <Tab> :bn<CR>
+nnoremap <silent> H gT
+nnoremap <silent> L gt
+nnoremap <silent> Q :q<CR>
+nnoremap <silent> _ :bdelete!<CR>
+
+set NERDTree
+set commentary
+set ideajoin
+set surround
+
+nnoremap <C-N> :NERDTree<CR>
