@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use serde::Deserialize;
 
 #[derive(Deserialize)]
-struct Modal {}
+struct Model {}
 
 /// name => os => modal
-struct Modals(HashMap<String, HashMap<String, Modal>>);
+struct Models(HashMap<String, HashMap<String, Model>>);
