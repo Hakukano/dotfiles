@@ -1,0 +1,8 @@
+{
+    "default": {
+        "configs": {
+            ".config/nvim": ".config/nvim",
+            ".vim": ".vim"
+        }
+    }
+}
