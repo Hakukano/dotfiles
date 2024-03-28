@@ -20,7 +20,7 @@ use check::Check;
 use config::Config;
 use install::Install;
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 pub struct Model {
     description: String,
     check: Check,
@@ -91,6 +91,7 @@ impl Model {
     }
 }
 
+#[derive(Clone)]
 pub struct Models(HashMap<String, Model>);
 
 impl Models {

@@ -8,7 +8,7 @@ macro_rules! gen_command {
     };
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 pub struct Cmd(Vec<String>);
 
 impl Cmd {

@@ -3,7 +3,7 @@ use serde::Deserialize;
 
 use super::{check::Check, cmd::Cmd};
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 pub struct Install {
     description: String,
     check: Check,
