@@ -1,8 +1,55 @@
 {
     "default": {
-        "configs": {
-            ".config/nvim": ".config/nvim",
-            ".vim": ".vim"
-        }
+        "description": "NeoVim setup, run ~/.fzf/install later!",
+        "check": [
+            "command",
+            "-v",
+            "nvim"
+        ],
+        "dependencies": [
+            "ag",
+            "rg"
+        ],
+        "configs": [
+            {
+                "description": "Neovim configs",
+                "src": "./home/.config/nvim",
+                "dst": "${HOME}/.config/nvim"
+            },
+            {
+                "description": "Vim configs",
+                "src": "./home/.vim",
+                "dst": "${HOME}/.vim"
+            }
+        ]
+    },
+    "macos": {
+        "installs": [
+            {
+                "description": "Install neovim",
+                "check": [
+                    "command",
+                    "-v",
+                    "nvim"
+                ],
+                "commands": [
+                    [
+                        "brew",
+                        "install",
+                        "neovim"
+                    ],
+                    [
+                        "nvim",
+                        "'+PlugClean'",
+                        "'+PlugUpdate'",
+                        "'+UpdateRemotePlugins'",
+                        "'+qa'"
+                    ],
+                    [
+                        "~/.fzf/install"
+                    ]
+                ]
+            }
+        ]
     }
 }

@@ -1,0 +1,29 @@
+{
+    "default": {
+        "description": "The silver searcher",
+        "check": [
+            "command",
+            "-v",
+            "ag"
+        ]
+    },
+    "macos": {
+        "installs": [
+            {
+                "description": "Install ag",
+                "check": [
+                    "command",
+                    "-v",
+                    "ag"
+                ],
+                "commands": [
+                    [
+                        "brew",
+                        "install",
+                        "the_silver_searcher"
+                    ]
+                ]
+            }
+        ]
+    }
+}
