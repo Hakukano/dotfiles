@@ -12,4 +12,8 @@ impl Service {
     }
 }
 
-impl super::Service for Service {}
+impl super::Service for Service {
+    fn models(&self) -> &Models {
+        &self.models
+    }
+}

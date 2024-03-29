@@ -4,5 +4,5 @@ mod services;
 fn main() {
     let service = services::instantiate();
 
-    println!("Hello, world!");
+    println!("{:?}", service.models());
 }

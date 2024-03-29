@@ -20,16 +20,16 @@ use check::Check;
 use config::Config;
 use install::Install;
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Model {
     description: String,
     check: Check,
     #[serde(default)]
     dependencies: Vec<String>,
     #[serde(default)]
-    configs: HashMap<String, Config>,
+    configs: Vec<Config>,
     #[serde(default)]
-    installs: HashMap<String, Install>,
+    installs: Vec<Install>,
 }
 
 impl Model {
@@ -45,12 +45,12 @@ impl Model {
         self.dependencies.as_slice()
     }
 
-    pub fn configs(&self) -> &HashMap<String, Config> {
-        &self.configs
+    pub fn configs(&self) -> &[Config] {
+        self.configs.as_slice()
     }
 
-    pub fn installs(&self) -> &HashMap<String, Install> {
-        &self.installs
+    pub fn installs(&self) -> &[Install] {
+        self.installs.as_slice()
     }
 
     pub fn installed(&self) -> bool {
@@ -66,7 +66,7 @@ impl Model {
 
     pub fn config(&self, overwrite: bool) -> Result<()> {
         self.configs
-            .values()
+            .iter()
             .filter_map(|config| {
                 if overwrite || !config.linked() {
                     Some(config.link())
@@ -79,7 +79,7 @@ impl Model {
 
     pub fn install(&self, overwrite: bool) -> Result<()> {
         self.installs
-            .values()
+            .iter()
             .filter_map(|install| {
                 if overwrite || !install.installed() {
                     Some(install.install())
@@ -91,7 +91,7 @@ impl Model {
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Models(HashMap<String, Model>);
 
 impl Models {

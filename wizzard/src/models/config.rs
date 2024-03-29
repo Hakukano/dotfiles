@@ -7,7 +7,7 @@ use std::{
 use anyhow::Result;
 use serde::Deserialize;
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Config {
     description: String,
     src: String,

@@ -1,6 +1,6 @@
 {
     "default": {
-        "description": "NeoVim setup, run ~/.fzf/install later!",
+        "description": "NeoVim setup",
         "check": [
             "command",
             "-v",

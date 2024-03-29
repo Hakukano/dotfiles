@@ -2,7 +2,7 @@ use serde::Deserialize;
 
 use super::cmd::Cmd;
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Check(Cmd);
 
 impl Check {
