@@ -46,7 +46,7 @@
                         "'+qa'"
                     ],
                     [
-                        "~/.fzf/install"
+                        "${HOME}/.fzf/install"
                     ]
                 ]
             }

@@ -4,7 +4,16 @@ use serde::Deserialize;
 
 macro_rules! gen_command {
     ($self:ident) => {
-        Command::new($self.0.first().expect("No binary name found")).args($self.0.iter().skip(1))
+        Command::new(
+            shellexpand::env($self.0.first().expect("No binary name found"))
+                .expect("Cannot expand command binary")
+                .as_ref(),
+        )
+        .args($self.0.iter().skip(1).map(|arg| {
+            shellexpand::env(arg)
+                .expect("Cannot expand command binary")
+                .to_string()
+        }))
     };
 }
 

@@ -20,7 +20,12 @@ impl Config {
     }
 
     pub fn absolute_src(&self) -> PathBuf {
-        fs::canonicalize(Path::new(self.src.as_str())).expect("Cannot get absolute path of src")
+        fs::canonicalize(Path::new(
+            shellexpand::env(self.src.as_str())
+                .expect("Cannot expand src path")
+                .as_ref(),
+        ))
+        .expect("Cannot get absolute path of src")
     }
 
     pub fn absolute_dst(&self) -> PathBuf {
