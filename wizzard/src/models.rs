@@ -107,7 +107,7 @@ impl Models {
         Self(
             fs::read_dir("models")
                 .expect("Cannot find models directory")
-                .map(|entry| {
+                .filter_map(|entry| {
                     let path = entry.expect("Cannot find model file").path();
                     let name = path
                         .file_stem()
@@ -120,16 +120,16 @@ impl Models {
                         .expect("Cannot read model file")
                         .pipe(serde_json::from_reader)
                         .expect("Cannot parse model file");
-                    let model = models
-                        .get("default")
-                        .cloned()
-                        .unwrap_or_else(|| json!({}))
-                        .tap_mut(|value| {
-                            value.merge(&models.get(&dist).cloned().unwrap_or_else(|| json!({})))
-                        })
-                        .pipe(serde_json::from_value)
-                        .expect("Invalid model structure");
-                    (name, model)
+                    models.get(&dist).map(|dist_value| {
+                        let model = models
+                            .get("default")
+                            .cloned()
+                            .unwrap_or_else(|| json!({}))
+                            .tap_mut(|value| value.merge(dist_value))
+                            .pipe(serde_json::from_value)
+                            .expect("Invalid model structure");
+                        (name, model)
+                    })
                 })
                 .collect(),
         )
