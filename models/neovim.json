@@ -13,12 +13,12 @@
         "configs": [
             {
                 "description": "Neovim configs",
-                "src": "./home/.config/nvim",
+                "src": "./configs/nvim",
                 "dst": "${HOME}/.config/nvim"
             },
             {
                 "description": "Vim configs",
-                "src": "./home/.vim",
+                "src": "./configs/vim",
                 "dst": "${HOME}/.vim"
             }
         ]
