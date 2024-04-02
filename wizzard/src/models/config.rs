@@ -52,4 +52,8 @@ impl Config {
     pub fn link(&self) -> Result<()> {
         symlink(self.absolute_src(), self.absolute_dst()).map_err(Into::into)
     }
+
+    pub fn unlink(&self) -> Result<()> {
+        fs::remove_file(self.absolute_dst()).map_err(Into::into)
+    }
 }

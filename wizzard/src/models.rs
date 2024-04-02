@@ -55,6 +55,8 @@ impl Model {
 
     pub fn installed(&self) -> bool {
         self.check.ok()
+            && self.installs.iter().all(|install| install.installed())
+            && self.configs.iter().all(|config| config.linked())
     }
 
     pub fn missing_dependencies(&self, installed: HashSet<String>) -> Vec<&String> {
@@ -64,7 +66,7 @@ impl Model {
             .collect()
     }
 
-    pub fn config(&self, overwrite: bool) -> Result<()> {
+    pub fn install(&self, overwrite: bool) -> Result<()> {
         self.configs
             .iter()
             .filter_map(|config| {
@@ -74,15 +76,35 @@ impl Model {
                     None
                 }
             })
-            .collect()
-    }
-
-    pub fn install(&self, overwrite: bool) -> Result<()> {
+            .collect::<Result<()>>()?;
         self.installs
             .iter()
             .filter_map(|install| {
                 if overwrite || !install.installed() {
                     Some(install.install())
+                } else {
+                    None
+                }
+            })
+            .collect()
+    }
+
+    pub fn uninstall(&self) -> Result<()> {
+        self.installs
+            .iter()
+            .filter_map(|install| {
+                if install.installed() {
+                    Some(install.uninstall())
+                } else {
+                    None
+                }
+            })
+            .collect::<Result<()>>()?;
+        self.configs
+            .iter()
+            .filter_map(|config| {
+                if config.linked() {
+                    Some(config.unlink())
                 } else {
                     None
                 }

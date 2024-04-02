@@ -26,6 +26,13 @@
                         "ripgrep",
                         "--features='pcre2'"
                     ]
+                ],
+                "reverses": [
+                    [
+                        "cargo",
+                        "uninstall",
+                        "ripgrep"
+                    ]
                 ]
             }
         ]

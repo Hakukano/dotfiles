@@ -1,8 +1,8 @@
 mod models;
-mod services;
+mod views;
 
 fn main() {
-    let service = services::instantiate();
+    let models = models::Models::new();
 
-    println!("{:?}", service.models());
+    views::run(&models);
 }

@@ -48,6 +48,13 @@
                     [
                         "${HOME}/.fzf/install"
                     ]
+                ],
+                "reverses": [
+                    [
+                        "brew",
+                        "uninstall",
+                        "neovim"
+                    ]
                 ]
             }
         ]

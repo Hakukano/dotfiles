@@ -8,6 +8,7 @@ pub struct Install {
     description: String,
     check: Check,
     commands: Vec<Cmd>,
+    reverses: Vec<Cmd>,
 }
 
 impl Install {
@@ -31,6 +32,15 @@ impl Install {
         for command in self.commands.iter() {
             if !command.status().success() {
                 return Err(anyhow!("Failed to install: {}", command.command()));
+            }
+        }
+        Ok(())
+    }
+
+    pub fn uninstall(&self) -> Result<()> {
+        for command in self.reverses.iter() {
+            if !command.status().success() {
+                return Err(anyhow!("Failed to uninstall: {}", command.command()));
             }
         }
         Ok(())
