@@ -28,6 +28,19 @@ pub fn handle(models: &Models) -> InquireResult<()> {
 
     let model = models.get(model_name);
     if let Some(model) = model {
+        if !model.installed() {
+            execute!(
+                io::stdout(),
+                SetForegroundColor(Color::Yellow),
+                Print(format!(
+                    "{} is not installed, skipping\n",
+                    model.description()
+                )),
+                ResetColor,
+            )?;
+            return Ok(());
+        }
+
         if Confirm::new("Uninstall this model?")
             .with_default(false)
             .prompt()?
