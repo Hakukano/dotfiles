@@ -18,7 +18,7 @@ pub fn handle(models: &Models) -> InquireResult<()> {
             io::stderr(),
             SetForegroundColor(Color::Red),
             Print(format!(
-                "There dependents are still installed, please uninstall them first. {}\n",
+                "These dependents are still installed, please uninstall them first: {}\n",
                 dependents.join(", ")
             )),
             ResetColor
