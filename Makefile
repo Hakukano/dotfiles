@@ -1,19 +1,22 @@
 OUT_DIRECTORY = out
 
-EXEUTABLE_NAME = wizzard
+EXEUTABLE_NAME = wizard
 
 .PHONY: usage clean dev build
 
 usage:
-	echo "Usage: make [usage] [clean] [dev] [build]"
+	echo "Usage: make [usage] [clean] [lint] [dev] [build]"
 
 clean:
 	rm -rf ${OUT_DIRECTORY}
 	mkdir -p ${OUT_DIRECTORY}
 
+lint:
+	cargo clippy --manifest-path wizard/Cargo.toml
+
 dev:
-	cargo run --manifest-path wizzard/Cargo.toml
+	cargo run --manifest-path wizard/Cargo.toml
 
 build: clean
-	cargo build --release --manifest-path wizzard/Cargo.toml
-	cp wizzard/target/release/${EXEUTABLE_NAME} ${OUT_DIRECTORY}/${EXEUTABLE_NAME}
+	cargo build --release --manifest-path wizard/Cargo.toml
+	cp wizard/target/release/${EXEUTABLE_NAME} ${OUT_DIRECTORY}/${EXEUTABLE_NAME}
