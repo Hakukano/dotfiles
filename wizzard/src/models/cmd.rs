@@ -1,4 +1,4 @@
-use std::process::{Command, ExitStatus};
+use std::process::{Command, ExitStatus, Stdio};
 
 use serde::Deserialize;
 
@@ -26,6 +26,9 @@ impl Cmd {
     }
 
     pub fn status(&self) -> ExitStatus {
-        gen_command!(self).status().expect("Cannot get status")
+        gen_command!(self)
+            .stdout(Stdio::null())
+            .status()
+            .expect("Cannot get status")
     }
 }

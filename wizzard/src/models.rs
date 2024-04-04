@@ -11,10 +11,10 @@ use serde::Deserialize;
 use serde_json::{json, Value};
 use tap::{Pipe, Tap};
 
-mod check;
-mod cmd;
-mod config;
-mod install;
+pub mod check;
+pub mod cmd;
+pub mod config;
+pub mod install;
 
 use check::Check;
 use config::Config;

@@ -43,7 +43,7 @@ impl Config {
             return false;
         }
         if let Ok(src) = fs::read_link(path) {
-            src == Path::new(self.src.as_str())
+            src == self.absolute_src()
         } else {
             false
         }
