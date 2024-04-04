@@ -1,0 +1,100 @@
+{
+    "default": {
+        "description": "Nodejs",
+        "check": [
+            "command",
+            "-v",
+            "yarn"
+        ],
+        "dependencies": [
+            "asdf"
+        ],
+        "configs": [
+            {
+                "description": "NPM rc",
+                "src": "./configs/nodejs/npmrc",
+                "dst": "${HOME}/.npmrc"
+            }
+        ],
+        "installs": [
+            {
+                "description": "Add nodejs plugin",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ `asdf plugin list | grep 'nodejs' | wc -l` -eq 1 ]"
+                ],
+                "commands": [
+                    [
+                        "asdf",
+                        "plugin",
+                        "add",
+                        "nodejs"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "asdf",
+                        "plugin",
+                        "remove",
+                        "nodejs"
+                    ]
+                ]
+            },
+            {
+                "description": "Install latest nodejs",
+                "check": [
+                    "command",
+                    "-v",
+                    "npm"
+                ],
+                "commands": [
+                    [
+                        "asdf",
+                        "install",
+                        "nodejs",
+                        "latest"
+                    ],
+                    [
+                        "asdf",
+                        "global",
+                        "nodejs",
+                        "latest"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "asdf",
+                        "uninstall",
+                        "nodejs"
+                    ]
+                ]
+            },
+            {
+                "description": "Install yarn",
+                "check": [
+                    "command",
+                    "-v",
+                    "yarn"
+                ],
+                "commands": [
+                    [
+                        "npm",
+                        "install",
+                        "-g",
+                        "yarn"
+                    ],
+                    [
+                        "yarn",
+                        "config",
+                        "set",
+                        "prefix",
+                        "~/.yarn"
+                    ]
+                ],
+                "reverses": []
+            }
+        ]
+    },
+    "macos": {}
+}
