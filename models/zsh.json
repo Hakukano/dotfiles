@@ -1,37 +1,34 @@
 {
     "default": {
-        "description": "ripgrep",
+        "description": "zsh",
         "check": [
-            "command",
-            "-v",
-            "rg"
+            "sh",
+            "-c",
+            "[[ `echo -n $SHELL` =~ 'zsh' ]]"
         ],
-        "dependencies": [
-            "rust"
-        ]
+        "configs": []
     },
     "macos": {
         "installs": [
             {
-                "description": "Install rg",
+                "description": "Install zsh",
                 "check": [
                     "command",
                     "-v",
-                    "rg"
+                    "zsh"
                 ],
                 "commands": [
                     [
-                        "cargo",
+                        "brew",
                         "install",
-                        "ripgrep",
-                        "--features='pcre2'"
+                        "zsh"
                     ]
                 ],
                 "reverses": [
                     [
-                        "cargo",
+                        "brew",
                         "uninstall",
-                        "ripgrep"
+                        "zsh"
                     ]
                 ]
             }

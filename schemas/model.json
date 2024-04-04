@@ -45,6 +45,11 @@
         },
         "config": {
             "type": "object",
+            "required": [
+                "description",
+                "src",
+                "dst"
+            ],
             "properties": {
                 "description": {
                     "type": "string"
@@ -59,6 +64,12 @@
         },
         "install": {
             "type": "object",
+            "required": [
+                "description",
+                "check",
+                "commands",
+                "reverses"
+            ],
             "properties": {
                 "description": {
                     "type": "string"

@@ -81,6 +81,7 @@ impl Model {
     pub fn uninstall(&self) -> Result<()> {
         self.installs
             .iter()
+            .rev()
             .filter_map(|install| {
                 if install.installed() {
                     Some(install.uninstall())
@@ -91,6 +92,7 @@ impl Model {
             .collect::<Result<()>>()?;
         self.configs
             .iter()
+            .rev()
             .filter_map(|config| {
                 if config.linked() {
                     Some(config.unlink())
