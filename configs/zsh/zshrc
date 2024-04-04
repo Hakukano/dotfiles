@@ -3,8 +3,6 @@
 ZSH_CONFIGS_DIR=${HOME}/.config/zsh
 
 source ${ZSH_CONFIGS_DIR}/exports.zsh
-source ${ZSH_CONFIGS_DIR}/alias.zsh
-source ${ZSH_CONFIGS_DIR}/functions.zsh
 
 # Keep a ton of history. You can reset these without editing .zshrc by
 # adding a file to ~/.zshrc.d.
@@ -104,6 +102,10 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
 # Zgenom
 [[ -f ${HOME}/.zgenom/zgenom.zsh ]] && source ${ZSH_CONFIGS_DIR}/zgenom.zsh
+
+# Alias and functions
+source ${ZSH_CONFIGS_DIR}/alias.zsh
+source ${ZSH_CONFIGS_DIR}/functions.zsh
 
 # fzf
 fzf_zsh=${HOME}/.fzf.zsh
