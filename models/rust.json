@@ -1,0 +1,69 @@
+{
+    "default": {
+        "description": "Rust",
+        "check": [
+            "command",
+            "-v",
+            "rustc"
+        ],
+        "dependencies": [
+            "asdf"
+        ],
+        "installs": [
+            {
+                "description": "Add rust plugin",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ `asdf plugin list | grep 'rust' | wc -l` -eq 1 ]"
+                ],
+                "commands": [
+                    [
+                        "asdf",
+                        "plugin",
+                        "add",
+                        "rust"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "asdf",
+                        "plugin",
+                        "remove",
+                        "rust"
+                    ]
+                ]
+            },
+            {
+                "description": "Install latest rust",
+                "check": [
+                    "command",
+                    "-v",
+                    "rustc"
+                ],
+                "commands": [
+                    [
+                        "asdf",
+                        "install",
+                        "rust",
+                        "latest"
+                    ],
+                    [
+                        "asdf",
+                        "global",
+                        "rust",
+                        "latest"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "asdf",
+                        "uninstall",
+                        "rust"
+                    ]
+                ]
+            }
+        ]
+    },
+    "macos": {}
+}

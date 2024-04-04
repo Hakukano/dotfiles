@@ -1,0 +1,71 @@
+{
+    "default": {
+        "description": "zsh",
+        "check": [
+            "sh",
+            "-c",
+            "[[ `echo -n $SHELL` =~ 'zsh' ]] && [ -d \"${HOME}/.zgenom\" ]"
+        ],
+        "configs": [
+            {
+                "description": "zshrc",
+                "src": "./configs/zsh/zshrc",
+                "dst": "${HOME}/.zshrc"
+            },
+            {
+                "description": "zsh settings",
+                "src": "./configs/zsh/configs",
+                "dst": "${HOME}/.config/zsh"
+            }
+        ]
+    },
+    "macos": {
+        "installs": [
+            {
+                "description": "Install zsh",
+                "check": [
+                    "command",
+                    "-v",
+                    "zsh"
+                ],
+                "commands": [
+                    [
+                        "brew",
+                        "install",
+                        "zsh"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "brew",
+                        "uninstall",
+                        "zsh"
+                    ]
+                ]
+            },
+            {
+                "description": "Install zgenom",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ -d \"${HOME}/.zgenom\" ]"
+                ],
+                "commands": [
+                    [
+                        "git",
+                        "clone",
+                        "https://github.com/jandamm/zgenom.git",
+                        "${HOME}/.zgenom"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "rm",
+                        "-rf",
+                        "${HOME}/.zgenom"
+                    ]
+                ]
+            }
+        ]
+    }
+}

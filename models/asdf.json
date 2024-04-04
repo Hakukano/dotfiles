@@ -1,0 +1,40 @@
+{
+    "default": {
+        "description": "asdf version manager",
+        "check": [
+            "command",
+            "-v",
+            "asdf"
+        ]
+    },
+    "macos": {
+        "installs": [
+            {
+                "description": "Install asdf",
+                "check": [
+                    "command",
+                    "-v",
+                    "asdf"
+                ],
+                "commands": [
+                    [
+                        "brew",
+                        "install",
+                        "asdf"
+                    ],
+                    [
+                        "echo",
+                        "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "brew",
+                        "uninstall",
+                        "asdf"
+                    ]
+                ]
+            }
+        ]
+    }
+}

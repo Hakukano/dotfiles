@@ -1,0 +1,42 @@
+{
+    "default": {
+        "description": "fzf",
+        "check": [
+            "sh",
+            "-c",
+            "[ -d \"${HOME}/.fzf\" ]"
+        ],
+        "dependencies": [
+            "ag",
+            "rg"
+        ],
+        "installs": [
+            {
+                "description": "Install fzf",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ -d \"${HOME}/.fzf\" ]"
+                ],
+                "commands": [
+                    [
+                        "git",
+                        "clone",
+                        "--depth",
+                        "1",
+                        "https://github.com/junegunn/fzf.git",
+                        "${HOME}/.fzf"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "rm",
+                        "-rf",
+                        "${HOME}/.fzf"
+                    ]
+                ]
+            }
+        ]
+    },
+    "macos": {}
+}

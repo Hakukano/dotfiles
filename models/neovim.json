@@ -1,0 +1,51 @@
+{
+    "default": {
+        "description": "NeoVim setup",
+        "check": [
+            "command",
+            "-v",
+            "nvim"
+        ],
+        "dependencies": [
+            "fzf"
+        ],
+        "configs": [
+            {
+                "description": "Neovim configs",
+                "src": "./configs/nvim",
+                "dst": "${HOME}/.config/nvim"
+            },
+            {
+                "description": "Vim configs",
+                "src": "./configs/vim",
+                "dst": "${HOME}/.vim"
+            }
+        ]
+    },
+    "macos": {
+        "installs": [
+            {
+                "description": "Install neovim",
+                "check": [
+                    "command",
+                    "-v",
+                    "nvim"
+                ],
+                "commands": [
+                    [
+                        "brew",
+                        "install",
+                        "neovim"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "brew",
+                        "uninstall",
+                        "neovim"
+                    ]
+                ]
+            }
+        ]
+    }
+}

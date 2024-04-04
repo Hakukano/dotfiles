@@ -1,0 +1,40 @@
+{
+    "default": {
+        "description": "ripgrep",
+        "check": [
+            "command",
+            "-v",
+            "rg"
+        ],
+        "dependencies": [
+            "rust"
+        ]
+    },
+    "macos": {
+        "installs": [
+            {
+                "description": "Install rg",
+                "check": [
+                    "command",
+                    "-v",
+                    "rg"
+                ],
+                "commands": [
+                    [
+                        "cargo",
+                        "install",
+                        "ripgrep",
+                        "--features='pcre2'"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "cargo",
+                        "uninstall",
+                        "ripgrep"
+                    ]
+                ]
+            }
+        ]
+    }
+}
