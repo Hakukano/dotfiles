@@ -66,24 +66,24 @@ impl Model {
             .collect()
     }
 
-    pub fn install(&self, overwrite: bool) -> Result<()> {
+    pub fn install(&self) -> Result<()> {
         self.configs
             .iter()
             .filter_map(|config| {
-                if overwrite || !config.linked() {
-                    Some(config.link())
-                } else {
+                if config.linked() {
                     None
+                } else {
+                    Some(config.link())
                 }
             })
             .collect::<Result<()>>()?;
         self.installs
             .iter()
             .filter_map(|install| {
-                if overwrite || !install.installed() {
-                    Some(install.install())
-                } else {
+                if install.installed() {
                     None
+                } else {
+                    Some(install.install())
                 }
             })
             .collect()
