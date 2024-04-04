@@ -8,6 +8,7 @@ use crate::models::Models;
 mod install;
 mod list;
 mod show;
+mod uninstall;
 
 fn actions() -> Vec<&'static str> {
     vec!["list", "show", "install", "uninstall", "exit"]
@@ -23,6 +24,7 @@ pub fn run(models: &Models) -> InquireResult<()> {
             "list" => list::handle(models),
             "show" => show::handle(models)?,
             "install" => install::handle(models)?,
+            "uninstall" => uninstall::handle(models)?,
             "exit" => break,
             _ => {}
         }

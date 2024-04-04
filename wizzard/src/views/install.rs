@@ -23,9 +23,8 @@ fn install(model: &Model, models: &Models) -> InquireResult<()> {
         return Ok(());
     }
 
-    let missing_dependencies = model.missing_dependencies(models.installed());
+    let missing_dependencies = models.missing_dependencies(model);
     if missing_dependencies.is_empty() {
-        execute!(io::stdout(), Print("\n"))?;
         if Confirm::new("Install this model?")
             .with_default(false)
             .prompt()?
@@ -33,7 +32,7 @@ fn install(model: &Model, models: &Models) -> InquireResult<()> {
             execute!(
                 io::stdout(),
                 SetForegroundColor(Color::Yellow),
-                Print(format!("Installing {}", model.description())),
+                Print(format!("Installing {}\n", model.description())),
                 ResetColor
             )?;
             if let Err(err) = model.install() {
@@ -52,11 +51,7 @@ fn install(model: &Model, models: &Models) -> InquireResult<()> {
             SetForegroundColor(Color::Red),
             Print(format!(
                 "Missing dependency: {}\n\n",
-                missing_dependencies
-                    .iter()
-                    .map(ToString::to_string)
-                    .collect::<Vec<_>>()
-                    .join(", ")
+                missing_dependencies.join(", ")
             )),
             ResetColor
         )?;

@@ -37,10 +37,6 @@ impl Model {
         self.description.as_str()
     }
 
-    pub fn check(&self) -> String {
-        self.check.command()
-    }
-
     pub fn dependencies(&self) -> &[String] {
         self.dependencies.as_slice()
     }
@@ -57,13 +53,6 @@ impl Model {
         self.check.ok()
             && self.installs.iter().all(|install| install.installed())
             && self.configs.iter().all(|config| config.linked())
-    }
-
-    pub fn missing_dependencies(&self, installed: HashSet<String>) -> Vec<&String> {
-        self.dependencies
-            .iter()
-            .filter(|dependency| !installed.contains(*dependency))
-            .collect()
     }
 
     pub fn install(&self) -> Result<()> {
@@ -157,9 +146,27 @@ impl Models {
         )
     }
 
-    pub fn installed(&self) -> HashSet<String> {
+    pub fn missing_dependencies(&self, model: &Model) -> Vec<String> {
+        let installed = self
+            .iter()
+            .filter(|&(_, model)| model.installed())
+            .map(|(name, _)| name.clone())
+            .collect::<HashSet<_>>();
+        model
+            .dependencies()
+            .iter()
+            .filter(|dependency| !installed.contains(*dependency))
+            .cloned()
+            .collect()
+    }
+
+    pub fn installed_dependents(&self, model_name: &str) -> Vec<String> {
         self.iter()
-            .filter_map(|(k, v)| if v.installed() { Some(k.clone()) } else { None })
+            .filter(|&(_, model)| {
+                model.installed() && model.dependencies().contains(&model_name.to_string())
+            })
+            .map(|(name, _)| name)
+            .cloned()
             .collect()
     }
 }

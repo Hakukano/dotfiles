@@ -16,14 +16,6 @@ impl Install {
         self.description.as_str()
     }
 
-    pub fn check(&self) -> String {
-        self.check.command()
-    }
-
-    pub fn commands(&self) -> Vec<String> {
-        self.commands.iter().map(Cmd::command).collect()
-    }
-
     pub fn installed(&self) -> bool {
         self.check.ok()
     }
