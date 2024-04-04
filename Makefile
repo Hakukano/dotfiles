@@ -1,4 +1,6 @@
-OUT_DIRECTORY = out
+UNAME := $(shell uname)
+
+OUT_DIRECTORY = bin
 
 EXEUTABLE_NAME = wizard
 
@@ -19,4 +21,4 @@ dev:
 
 build: clean
 	cargo build --release --manifest-path wizard/Cargo.toml
-	cp wizard/target/release/${EXEUTABLE_NAME} ${OUT_DIRECTORY}/${EXEUTABLE_NAME}
+	cp wizard/target/release/${EXEUTABLE_NAME} ${OUT_DIRECTORY}/${EXEUTABLE_NAME}-${UNAME}
