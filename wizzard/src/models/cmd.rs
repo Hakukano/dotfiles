@@ -26,6 +26,10 @@ impl Cmd {
     }
 
     pub fn status(&self) -> ExitStatus {
+        gen_command!(self).status().expect("Cannot get status")
+    }
+
+    pub fn status_no_output(&self) -> ExitStatus {
         gen_command!(self)
             .stdout(Stdio::null())
             .status()
