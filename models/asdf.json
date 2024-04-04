@@ -1,37 +1,37 @@
 {
     "default": {
-        "description": "Ripgrep",
+        "description": "asdf version manager",
         "check": [
             "command",
             "-v",
-            "rg"
-        ],
-        "dependencies": [
-            "rust"
+            "asdf"
         ]
     },
     "macos": {
         "installs": [
             {
-                "description": "Install rg",
+                "description": "Install asdf",
                 "check": [
                     "command",
                     "-v",
-                    "rg"
+                    "asdf"
                 ],
                 "commands": [
                     [
-                        "cargo",
+                        "brew",
                         "install",
-                        "ripgrep",
-                        "--features='pcre2'"
+                        "asdf"
+                    ],
+                    [
+                        "echo",
+                        "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
                     ]
                 ],
                 "reverses": [
                     [
-                        "cargo",
+                        "brew",
                         "uninstall",
-                        "ripgrep"
+                        "asdf"
                     ]
                 ]
             }
