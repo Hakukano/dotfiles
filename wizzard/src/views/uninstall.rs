@@ -4,7 +4,7 @@ use crossterm::{
     execute,
     style::{Color, Print, ResetColor, SetForegroundColor},
 };
-use inquire::{error::InquireResult, Select};
+use inquire::{error::InquireResult, Confirm, Select};
 
 use crate::models::Models;
 
@@ -28,23 +28,28 @@ pub fn handle(models: &Models) -> InquireResult<()> {
 
     let model = models.get(model_name);
     if let Some(model) = model {
-        execute!(
-            io::stdout(),
-            SetForegroundColor(Color::Yellow),
-            Print(format!("Uninstalling {}\n", model.description())),
-            ResetColor
-        )?;
-        if let Err(err) = model.uninstall() {
+        if Confirm::new("Uninstall this model?")
+            .with_default(false)
+            .prompt()?
+        {
             execute!(
-                io::stderr(),
-                SetForegroundColor(Color::Red),
-                Print(format!(
-                    "Cannot uninstall {}: {}\n",
-                    model.description(),
-                    err
-                )),
+                io::stdout(),
+                SetForegroundColor(Color::Yellow),
+                Print(format!("Uninstalling {}\n", model.description())),
                 ResetColor
             )?;
+            if let Err(err) = model.uninstall() {
+                execute!(
+                    io::stderr(),
+                    SetForegroundColor(Color::Red),
+                    Print(format!(
+                        "Cannot uninstall {}: {}\n",
+                        model.description(),
+                        err
+                    )),
+                    ResetColor
+                )?;
+            }
         }
     } else {
         execute!(
