@@ -39,13 +39,6 @@
                         "neovim"
                     ],
                     [
-                        "nvim",
-                        "'+PlugClean'",
-                        "'+PlugUpdate'",
-                        "'+UpdateRemotePlugins'",
-                        "'+qa'"
-                    ],
-                    [
                         "${HOME}/.fzf/install"
                     ]
                 ],

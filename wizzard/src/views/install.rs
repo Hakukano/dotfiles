@@ -32,7 +32,7 @@ fn install(model: &Model, models: &Models) -> InquireResult<()> {
             execute!(
                 io::stdout(),
                 SetForegroundColor(Color::Yellow),
-                Print(format!("Installing {}\n", model.description())),
+                Print(format!("\nInstalling {}\n", model.description())),
                 ResetColor
             )?;
             if let Err(err) = model.install() {

@@ -35,7 +35,7 @@ pub fn handle(models: &Models) -> InquireResult<()> {
             execute!(
                 io::stdout(),
                 SetForegroundColor(Color::Yellow),
-                Print(format!("Uninstalling {}\n", model.description())),
+                Print(format!("\nUninstalling {}\n", model.description())),
                 ResetColor
             )?;
             if let Err(err) = model.uninstall() {
