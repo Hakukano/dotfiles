@@ -7,8 +7,7 @@
             "nvim"
         ],
         "dependencies": [
-            "ag",
-            "rg"
+            "fzf"
         ],
         "configs": [
             {
@@ -37,9 +36,6 @@
                         "brew",
                         "install",
                         "neovim"
-                    ],
-                    [
-                        "${HOME}/.fzf/install"
                     ]
                 ],
                 "reverses": [

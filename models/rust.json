@@ -8,9 +8,7 @@
         ],
         "dependencies": [
             "asdf"
-        ]
-    },
-    "macos": {
+        ],
         "installs": [
             {
                 "description": "Add rust plugin",
@@ -66,5 +64,6 @@
                 ]
             }
         ]
-    }
+    },
+    "macos": {}
 }
