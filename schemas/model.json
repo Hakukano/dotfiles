@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "Model",
+    "description": "Model schema",
+    "patternProperties": {
+        ".*": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "check": {
+                    "$ref": "#/$defs/command"
+                },
+                "dependencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "Name of the dependency model"
+                    }
+                },
+                "configs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/config"
+                    }
+                },
+                "installs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/install"
+                    }
+                }
+            }
+        }
+    },
+    "$defs": {
+        "command": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Shell command part"
+            }
+        },
+        "config": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "src": {
+                    "type": "string"
+                },
+                "dst": {
+                    "type": "string"
+                }
+            }
+        },
+        "install": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "check": {
+                    "$ref": "#/$defs/command"
+                },
+                "dst": {
+                    "type": "string"
+                },
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/command"
+                    }
+                },
+                "reverses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/command"
+                    }
+                }
+            }
+        }
+    }
+}
