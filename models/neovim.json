@@ -6,19 +6,11 @@
             "-v",
             "nvim"
         ],
-        "dependencies": [
-            "fzf"
-        ],
         "configs": [
             {
                 "description": "Neovim configs",
                 "src": "./configs/nvim",
                 "dst": "${HOME}/.config/nvim"
-            },
-            {
-                "description": "Vim configs",
-                "src": "./configs/vim",
-                "dst": "${HOME}/.vim"
             }
         ]
     },
