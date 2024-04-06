@@ -2,6 +2,9 @@
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
+-- Enable local nvim configs
+vim.o.exrc = true
+
 -- Set up custom filetypes
 vim.filetype.add {
   extension = {
