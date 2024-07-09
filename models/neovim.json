@@ -2,9 +2,9 @@
     "default": {
         "description": "NeoVim setup",
         "check": [
-            "command",
-            "-v",
-            "nvim"
+            "sh",
+            "-c",
+            "command -v nvim"
         ],
         "configs": [
             {
@@ -34,6 +34,36 @@
                     [
                         "brew",
                         "uninstall",
+                        "neovim"
+                    ]
+                ]
+            }
+        ]
+    },
+    "ubuntu": {
+        "installs": [
+            {
+                "description": "Install neovim",
+                "check": [
+                  "sh",
+                  "-c",
+                  "command -v nvim"
+                ],
+                "commands": [
+                    [
+                        "sudo",
+                        "apt",
+                        "install",
+                        "-y",
+                        "neovim"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "sudo",
+                        "apt",
+                        "remove",
+                        "-y",
                         "neovim"
                     ]
                 ]
