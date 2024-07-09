@@ -26,6 +26,9 @@
                         "1",
                         "https://github.com/junegunn/fzf.git",
                         "${HOME}/.fzf"
+                    ],
+                    [
+                        "${HOME}/.fzf/install"
                     ]
                 ],
                 "reverses": [
@@ -38,5 +41,6 @@
             }
         ]
     },
-    "macos": {}
+    "macos": {},
+    "ubuntu": {}
 }

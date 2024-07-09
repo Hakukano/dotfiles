@@ -2,9 +2,9 @@
     "default": {
         "description": "Nodejs",
         "check": [
-            "command",
-            "-v",
-            "yarn"
+            "sh",
+            "-c",
+            "command -v yarn"
         ],
         "dependencies": [
             "asdf"
@@ -44,9 +44,9 @@
             {
                 "description": "Install latest nodejs",
                 "check": [
-                    "command",
-                    "-v",
-                    "npm"
+                  "sh",
+                  "-c",
+                  "command -v npm"
                 ],
                 "commands": [
                     [
@@ -73,9 +73,9 @@
             {
                 "description": "Install yarn",
                 "check": [
-                    "command",
-                    "-v",
-                    "yarn"
+                  "sh",
+                  "-c",
+                  "command -v yarn"
                 ],
                 "commands": [
                     [
@@ -96,5 +96,6 @@
             }
         ]
     },
-    "macos": {}
+    "macos": {},
+    "ubuntu": {}
 }

@@ -2,9 +2,9 @@
     "default": {
         "description": "Tmux",
         "check": [
-            "command",
-            "-v",
-            "tmux"
+            "sh",
+            "-c",
+            "command -v tmux"
         ],
         "configs": [
             {
@@ -34,6 +34,59 @@
                     [
                         "brew",
                         "uninstall",
+                        "tmux"
+                    ]
+                ]
+            },
+            {
+                "description": "Install tpm",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ -d \"${HOME}/.tpm\" ]"
+                ],
+                "commands": [
+                    [
+                        "git",
+                        "clone",
+                        "https://github.com/tmux-plugins/tpm",
+                        "${HOME}/.tpm"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "rm",
+                        "-rf",
+                        "${HOME}/.tpm"
+                    ]
+                ]
+            }
+        ]
+    },
+    "ubuntu": {
+        "installs": [
+            {
+                "description": "Install tmux",
+                "check": [
+                    "sh",
+                    "-c",
+                    "command -v tmux"
+                ],
+                "commands": [
+                    [
+                        "sudo",
+                        "apt",
+                        "install",
+                        "-y",
+                        "tmux"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "sudo",
+                        "apt",
+                        "remove",
+                        "-y",
                         "tmux"
                     ]
                 ]

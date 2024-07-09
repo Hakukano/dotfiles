@@ -2,9 +2,9 @@
     "default": {
         "description": "Rust",
         "check": [
-            "command",
-            "-v",
-            "rustc"
+            "sh",
+            "-c",
+            "command -v rustc"
         ],
         "dependencies": [
             "asdf"
@@ -37,9 +37,9 @@
             {
                 "description": "Install latest rust",
                 "check": [
-                    "command",
-                    "-v",
-                    "rustc"
+                  "sh",
+                  "-c",
+                  "command -v rustc"
                 ],
                 "commands": [
                     [
@@ -65,5 +65,6 @@
             }
         ]
     },
-    "macos": {}
+    "macos": {},
+    "ubuntu": {}
 }

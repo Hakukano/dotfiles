@@ -1,4 +1,4 @@
-UNAME := $(shell uname)
+DISTRO := $(shell bin/distro.sh)
 
 OUT_DIRECTORY = bin
 
@@ -19,6 +19,6 @@ lint:
 dev:
 	cargo run --manifest-path wizard/Cargo.toml
 
-build: clean
+build:
 	cargo build --release --manifest-path wizard/Cargo.toml
-	cp wizard/target/release/${EXEUTABLE_NAME} ${OUT_DIRECTORY}/${EXEUTABLE_NAME}-${UNAME}
+	cp wizard/target/release/${EXEUTABLE_NAME} ${OUT_DIRECTORY}/${EXEUTABLE_NAME}-${DISTRO}
