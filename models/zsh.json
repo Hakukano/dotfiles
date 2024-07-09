@@ -4,7 +4,7 @@
         "check": [
             "sh",
             "-c",
-            "[[ `echo -n $SHELL` =~ 'zsh' ]] && [ -d \"${HOME}/.zgenom\" ]"
+            "[ `echo -n ${SHELL}` = '/bin/zsh' ] && [ -d \"${HOME}/.zgenom\" ]"
         ],
         "configs": [
             {
@@ -39,6 +39,59 @@
                     [
                         "brew",
                         "uninstall",
+                        "zsh"
+                    ]
+                ]
+            },
+            {
+                "description": "Install zgenom",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ -d \"${HOME}/.zgenom\" ]"
+                ],
+                "commands": [
+                    [
+                        "git",
+                        "clone",
+                        "https://github.com/jandamm/zgenom.git",
+                        "${HOME}/.zgenom"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "rm",
+                        "-rf",
+                        "${HOME}/.zgenom"
+                    ]
+                ]
+            }
+        ]
+    },
+    "ubuntu": {
+        "installs": [
+            {
+                "description": "Install zsh",
+                "check": [
+                    "sh",
+                    "-c",
+                    "command -v zsh"
+                ],
+                "commands": [
+                    [
+                        "sudo",
+                        "apt",
+                        "install",
+                        "-y",
+                        "zsh"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "sudo",
+                        "apt",
+                        "remove",
+                        "-y",
                         "zsh"
                     ]
                 ]
