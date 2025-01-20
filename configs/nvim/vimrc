@@ -32,7 +32,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <silent> - :bdelete<CR>
 nnoremap <silent> <BS> :nohlsearch<CR>
-nnoremap <silent> <CR> :w<CR>
 nnoremap <silent> <S-Tab> :bp<CR>
 nnoremap <silent> <Tab> :bn<CR>
 nnoremap <silent> H gT
