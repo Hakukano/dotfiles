@@ -1,73 +1,45 @@
 {
-    "default": {
-        "description": "asdf version manager",
-        "check": [
-            "sh",
-            "-c",
-            "command -v asdf"
-        ]
-    },
-    "macos": {
-        "installs": [
-            {
-                "description": "Install asdf",
-                "check": [
-                    "command",
-                    "-v",
-                    "asdf"
-                ],
-                "commands": [
-                    [
-                        "brew",
-                        "install",
-                        "asdf"
-                    ],
-                    [
-                        "echo",
-                        "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "brew",
-                        "uninstall",
-                        "asdf"
-                    ]
-                ]
-            }
-        ]
-    },
-    "ubuntu": {
-        "installs": [
-            {
-                "description": "Install asdf",
-                "check": [
-                    "sh",
-                    "-c",
-                    "[ -d \"${HOME}/.asdf\" ]"
-                ],
-                "commands": [
-                    [
-                        "git",
-                        "clone",
-                        "https://github.com/asdf-vm/asdf.git",
-                        "${HOME}/.asdf",
-                        "--branch",
-                        "v0.14.0"
-                    ],
-                    [
-                        "echo",
-                        "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "rm",
-                        "-rf",
-                        "${HOME}/.asdf"
-                    ]
-                ]
-            }
-        ]
-    }
+  "default": {
+    "description": "asdf version manager",
+    "check": ["sh", "-c", "command -v asdf"]
+  },
+  "macos": {
+    "installs": [
+      {
+        "description": "Install asdf",
+        "check": ["command", "-v", "asdf"],
+        "commands": [
+          ["brew", "install", "asdf"],
+          [
+            "echo",
+            "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
+          ]
+        ],
+        "reverses": [["brew", "uninstall", "asdf"]]
+      }
+    ]
+  },
+  "ubuntu": {
+    "installs": [
+      {
+        "description": "Install asdf",
+        "check": ["sh", "-c", "[ -d \"${HOME}/.asdf\" ]"],
+        "commands": [
+          [
+            "git",
+            "clone",
+            "https://github.com/asdf-vm/asdf.git",
+            "${HOME}/.asdf",
+            "--branch",
+            "v0.16.1"
+          ],
+          [
+            "echo",
+            "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
+          ]
+        ],
+        "reverses": [["rm", "-rf", "${HOME}/.asdf"]]
+      }
+    ]
+  }
 }
