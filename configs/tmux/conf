@@ -13,7 +13,7 @@ bind C-k select-pane -U
 bind C-h select-pane -L
 bind C-l select-pane -R
 
-bind C-m move-window -r
+bind M move-window -r
 
 bind C-l clear-history
 
