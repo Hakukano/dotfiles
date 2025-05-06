@@ -35,24 +35,25 @@
                 ]
             },
             {
-                "description": "Install latest rust",
+                "description": "Install stable rust",
                 "check": [
-                  "sh",
-                  "-c",
-                  "command -v rustc"
+                    "sh",
+                    "-c",
+                    "command -v rustc"
                 ],
                 "commands": [
                     [
                         "asdf",
                         "install",
                         "rust",
-                        "latest"
+                        "stable"
                     ],
                     [
                         "asdf",
-                        "global",
+                        "set",
+                        "--home",
                         "rust",
-                        "latest"
+                        "stable"
                     ]
                 ],
                 "reverses": [
@@ -65,6 +66,7 @@
             }
         ]
     },
+    "arch": {},
     "macos": {},
     "ubuntu": {}
 }

@@ -1,46 +1,74 @@
 {
-    "default": {
-        "description": "fzf",
+  "default": {
+    "description": "fzf",
+    "check": [
+      "sh",
+      "-c",
+      "[ -d \"${HOME}/.fzf\" ]"
+    ],
+    "dependencies": [
+      "ag",
+      "rg"
+    ],
+    "installs": [
+      {
+        "description": "Install fzf",
         "check": [
-            "sh",
-            "-c",
-            "[ -d \"${HOME}/.fzf\" ]"
+          "sh",
+          "-c",
+          "[ -d \"${HOME}/.fzf\" ]"
         ],
-        "dependencies": [
-            "ag",
-            "rg"
+        "commands": [
+          [
+            "git",
+            "clone",
+            "--depth",
+            "1",
+            "https://github.com/junegunn/fzf.git",
+            "${HOME}/.fzf"
+          ],
+          [
+            "${HOME}/.fzf/install"
+          ]
         ],
-        "installs": [
-            {
-                "description": "Install fzf",
-                "check": [
-                    "sh",
-                    "-c",
-                    "[ -d \"${HOME}/.fzf\" ]"
-                ],
-                "commands": [
-                    [
-                        "git",
-                        "clone",
-                        "--depth",
-                        "1",
-                        "https://github.com/junegunn/fzf.git",
-                        "${HOME}/.fzf"
-                    ],
-                    [
-                        "${HOME}/.fzf/install"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "rm",
-                        "-rf",
-                        "${HOME}/.fzf"
-                    ]
-                ]
-            }
+        "reverses": [
+          [
+            "rm",
+            "-rf",
+            "${HOME}/.fzf"
+          ]
         ]
-    },
-    "macos": {},
-    "ubuntu": {}
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install fzf",
+        "check": [
+          "command",
+          "-v",
+          "fzf"
+        ],
+        "commands": [
+          [
+            "sudo",
+            "pacman",
+            "-S",
+            "fzf"
+          ]
+        ],
+        "reverses": [
+          [
+            "sudo",
+            "pacman",
+            "-Runs",
+            "fzf"
+          ]
+        ]
+      }
+    ]
+  },
+  "macos": {},
+  "ubuntu": {}
 }

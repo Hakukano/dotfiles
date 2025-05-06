@@ -13,9 +13,9 @@
             {
                 "description": "Install rg",
                 "check": [
-                  "sh",
-                  "-c",
-                  "command -v rg"
+                    "sh",
+                    "-c",
+                    "command -v rg"
                 ],
                 "commands": [
                     [
@@ -35,6 +35,7 @@
             }
         ]
     },
+    "arch": {},
     "macos": {},
     "ubuntu": {}
 }

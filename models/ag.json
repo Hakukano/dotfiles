@@ -1,66 +1,94 @@
 {
-    "default": {
-        "description": "The silver searcher",
+  "default": {
+    "description": "The silver searcher",
+    "check": [
+      "sh",
+      "-c",
+      "command -v ag"
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install ag",
         "check": [
-            "sh",
-            "-c",
-            "command -v ag"
+          "command",
+          "-v",
+          "ag"
+        ],
+        "commands": [
+          [
+            "sudo",
+            "pacman",
+            "-S",
+            "the_silver_searcher"
+          ]
+        ],
+        "reverses": [
+          [
+            "sudo",
+            "pacman",
+            "-Runs",
+            "the_silver_searcher"
+          ]
         ]
-    },
-    "macos": {
-        "installs": [
-            {
-                "description": "Install ag",
-                "check": [
-                    "command",
-                    "-v",
-                    "ag"
-                ],
-                "commands": [
-                    [
-                        "brew",
-                        "install",
-                        "the_silver_searcher"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "brew",
-                        "uninstall",
-                        "the_silver_searcher"
-                    ]
-                ]
-            }
+      }
+    ]
+  },
+  "macos": {
+    "installs": [
+      {
+        "description": "Install ag",
+        "check": [
+          "command",
+          "-v",
+          "ag"
+        ],
+        "commands": [
+          [
+            "brew",
+            "install",
+            "the_silver_searcher"
+          ]
+        ],
+        "reverses": [
+          [
+            "brew",
+            "uninstall",
+            "the_silver_searcher"
+          ]
         ]
-    },
-    "ubuntu": {
-        "installs": [
-            {
-                "description": "Install ag",
-                "check": [
-                  "sh",
-                  "-c",
-                  "command -v ag"
-                ],
-                "commands": [
-                    [
-                        "sudo",
-                        "apt",
-                        "install",
-                        "-y",
-                        "silversearcher-ag"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "sudo",
-                        "apt",
-                        "remove",
-                        "-y",
-                        "silversearcher-ag"
-                    ]
-                ]
-            }
+      }
+    ]
+  },
+  "ubuntu": {
+    "installs": [
+      {
+        "description": "Install ag",
+        "check": [
+          "sh",
+          "-c",
+          "command -v ag"
+        ],
+        "commands": [
+          [
+            "sudo",
+            "apt",
+            "install",
+            "-y",
+            "silversearcher-ag"
+          ]
+        ],
+        "reverses": [
+          [
+            "sudo",
+            "apt",
+            "remove",
+            "-y",
+            "silversearcher-ag"
+          ]
         ]
-    }
+      }
+    ]
+  }
 }

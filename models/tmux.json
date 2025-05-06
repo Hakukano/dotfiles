@@ -14,6 +14,57 @@
             }
         ]
     },
+    "arch": {
+        "installs": [
+            {
+                "description": "Install tmux",
+                "check": [
+                    "command",
+                    "-v",
+                    "tmux"
+                ],
+                "commands": [
+                    [
+                        "sudo",
+                        "pacman",
+                        "-S",
+                        "tmux"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "sudo",
+                        "pacman",
+                        "-Runs",
+                        "tmux"
+                    ]
+                ]
+            },
+            {
+                "description": "Install tpm",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ -d \"${HOME}/.tpm\" ]"
+                ],
+                "commands": [
+                    [
+                        "git",
+                        "clone",
+                        "https://github.com/tmux-plugins/tpm",
+                        "${HOME}/.tpm"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "rm",
+                        "-rf",
+                        "${HOME}/.tpm"
+                    ]
+                ]
+            }
+        ]
+    },
     "macos": {
         "installs": [
             {

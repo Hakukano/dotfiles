@@ -14,6 +14,34 @@
             }
         ]
     },
+    "arch": {
+        "installs": [
+            {
+                "description": "Install neovim",
+                "check": [
+                    "command",
+                    "-v",
+                    "neovim"
+                ],
+                "commands": [
+                    [
+                        "sudo",
+                        "pacman",
+                        "-S",
+                        "neovim"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "sudo",
+                        "pacman",
+                        "-Runs",
+                        "neovim"
+                    ]
+                ]
+            }
+        ]
+    },
     "macos": {
         "installs": [
             {
@@ -45,9 +73,9 @@
             {
                 "description": "Install neovim",
                 "check": [
-                  "sh",
-                  "-c",
-                  "command -v nvim"
+                    "sh",
+                    "-c",
+                    "command -v nvim"
                 ],
                 "commands": [
                     [

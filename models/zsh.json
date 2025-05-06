@@ -19,6 +19,57 @@
             }
         ]
     },
+    "arch": {
+        "installs": [
+            {
+                "description": "Install zsh",
+                "check": [
+                    "command",
+                    "-v",
+                    "zsh"
+                ],
+                "commands": [
+                    [
+                        "sudo",
+                        "pacman",
+                        "-S",
+                        "zsh"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "sudo",
+                        "pacman",
+                        "-Runs",
+                        "zsh"
+                    ]
+                ]
+            },
+            {
+                "description": "Install zgenom",
+                "check": [
+                    "sh",
+                    "-c",
+                    "[ -d \"${HOME}/.zgenom\" ]"
+                ],
+                "commands": [
+                    [
+                        "git",
+                        "clone",
+                        "https://github.com/jandamm/zgenom.git",
+                        "${HOME}/.zgenom"
+                    ]
+                ],
+                "reverses": [
+                    [
+                        "rm",
+                        "-rf",
+                        "${HOME}/.zgenom"
+                    ]
+                ]
+            }
+        ]
+    },
     "macos": {
         "installs": [
             {
