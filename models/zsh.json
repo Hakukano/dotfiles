@@ -1,175 +1,91 @@
 {
-    "default": {
-        "description": "zsh",
-        "check": [
-            "sh",
-            "-c",
-            "[ `printf '%s' \"${SHELL}\"` = '/bin/zsh' ] && [ -d \"${HOME}/.zgenom\" ]"
+  "default": {
+    "description": "zsh",
+    "check": [
+      "sh",
+      "-c",
+      "[ `printf '%s' \"${SHELL}\"` = '/bin/zsh' ] && [ -d \"${HOME}/.zgenom\" ]"
+    ],
+    "configs": [
+      {
+        "description": "zshrc",
+        "src": "./configs/zsh/zshrc",
+        "dst": "${HOME}/.zshrc"
+      },
+      {
+        "description": "zsh settings",
+        "src": "./configs/zsh/configs",
+        "dst": "${HOME}/.config/zsh"
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install zsh",
+        "check": ["sh", "-c", "command -v zsh"],
+        "commands": [["sudo", "pacman", "-S", "zsh"]],
+        "reverses": [["sudo", "pacman", "-Runs", "zsh"]]
+      },
+      {
+        "description": "Install zgenom",
+        "check": ["sh", "-c", "[ -d \"${HOME}/.zgenom\" ]"],
+        "commands": [
+          [
+            "git",
+            "clone",
+            "https://github.com/jandamm/zgenom.git",
+            "${HOME}/.zgenom"
+          ]
         ],
-        "configs": [
-            {
-                "description": "zshrc",
-                "src": "./configs/zsh/zshrc",
-                "dst": "${HOME}/.zshrc"
-            },
-            {
-                "description": "zsh settings",
-                "src": "./configs/zsh/configs",
-                "dst": "${HOME}/.config/zsh"
-            }
-        ]
-    },
-    "arch": {
-        "installs": [
-            {
-                "description": "Install zsh",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v zsh"
-                ],
-                "commands": [
-                    [
-                        "sudo",
-                        "pacman",
-                        "-S",
-                        "zsh"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "sudo",
-                        "pacman",
-                        "-Runs",
-                        "zsh"
-                    ]
-                ]
-            },
-            {
-                "description": "Install zgenom",
-                "check": [
-                    "sh",
-                    "-c",
-                    "[ -d \"${HOME}/.zgenom\" ]"
-                ],
-                "commands": [
-                    [
-                        "git",
-                        "clone",
-                        "https://github.com/jandamm/zgenom.git",
-                        "${HOME}/.zgenom"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "rm",
-                        "-rf",
-                        "${HOME}/.zgenom"
-                    ]
-                ]
-            }
-        ]
-    },
-    "macos": {
-        "installs": [
-            {
-                "description": "Install zsh",
-                "check": [
-                    "command",
-                    "-v",
-                    "zsh"
-                ],
-                "commands": [
-                    [
-                        "brew",
-                        "install",
-                        "zsh"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "brew",
-                        "uninstall",
-                        "zsh"
-                    ]
-                ]
-            },
-            {
-                "description": "Install zgenom",
-                "check": [
-                    "sh",
-                    "-c",
-                    "[ -d \"${HOME}/.zgenom\" ]"
-                ],
-                "commands": [
-                    [
-                        "git",
-                        "clone",
-                        "https://github.com/jandamm/zgenom.git",
-                        "${HOME}/.zgenom"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "rm",
-                        "-rf",
-                        "${HOME}/.zgenom"
-                    ]
-                ]
-            }
-        ]
-    },
-    "ubuntu": {
-        "installs": [
-            {
-                "description": "Install zsh",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v zsh"
-                ],
-                "commands": [
-                    [
-                        "sudo",
-                        "apt",
-                        "install",
-                        "-y",
-                        "zsh"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "sudo",
-                        "apt",
-                        "remove",
-                        "-y",
-                        "zsh"
-                    ]
-                ]
-            },
-            {
-                "description": "Install zgenom",
-                "check": [
-                    "sh",
-                    "-c",
-                    "[ -d \"${HOME}/.zgenom\" ]"
-                ],
-                "commands": [
-                    [
-                        "git",
-                        "clone",
-                        "https://github.com/jandamm/zgenom.git",
-                        "${HOME}/.zgenom"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "rm",
-                        "-rf",
-                        "${HOME}/.zgenom"
-                    ]
-                ]
-            }
-        ]
-    }
+        "reverses": [["rm", "-rf", "${HOME}/.zgenom"]]
+      }
+    ]
+  },
+  "macos": {
+    "installs": [
+      {
+        "description": "Install zsh",
+        "check": ["command", "-v", "zsh"],
+        "commands": [["brew", "install", "zsh"]],
+        "reverses": [["brew", "uninstall", "zsh"]]
+      },
+      {
+        "description": "Install zgenom",
+        "check": ["sh", "-c", "[ -d \"${HOME}/.zgenom\" ]"],
+        "commands": [
+          [
+            "git",
+            "clone",
+            "https://github.com/jandamm/zgenom.git",
+            "${HOME}/.zgenom"
+          ]
+        ],
+        "reverses": [["rm", "-rf", "${HOME}/.zgenom"]]
+      }
+    ]
+  },
+  "ubuntu": {
+    "installs": [
+      {
+        "description": "Install zsh",
+        "check": ["sh", "-c", "command -v zsh"],
+        "commands": [["sudo", "apt", "install", "-y", "zsh"]],
+        "reverses": [["sudo", "apt", "remove", "-y", "zsh"]]
+      },
+      {
+        "description": "Install zgenom",
+        "check": ["sh", "-c", "[ -d \"${HOME}/.zgenom\" ]"],
+        "commands": [
+          [
+            "git",
+            "clone",
+            "https://github.com/jandamm/zgenom.git",
+            "${HOME}/.zgenom"
+          ]
+        ],
+        "reverses": [["rm", "-rf", "${HOME}/.zgenom"]]
+      }
+    ]
+  }
 }

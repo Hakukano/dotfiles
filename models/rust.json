@@ -1,72 +1,31 @@
 {
-    "default": {
-        "description": "Rust",
+  "default": {
+    "description": "Rust",
+    "check": ["sh", "-c", "command -v rustc"],
+    "dependencies": ["asdf"],
+    "installs": [
+      {
+        "description": "Add rust plugin",
         "check": [
-            "sh",
-            "-c",
-            "command -v rustc"
+          "sh",
+          "-c",
+          "[ `asdf plugin list | grep 'rust' | wc -l` -eq 1 ]"
         ],
-        "dependencies": [
-            "asdf"
+        "commands": [["asdf", "plugin", "add", "rust"]],
+        "reverses": [["asdf", "plugin", "remove", "rust"]]
+      },
+      {
+        "description": "Install stable rust",
+        "check": ["sh", "-c", "command -v rustc"],
+        "commands": [
+          ["asdf", "install", "rust", "stable"],
+          ["asdf", "set", "--home", "rust", "stable"]
         ],
-        "installs": [
-            {
-                "description": "Add rust plugin",
-                "check": [
-                    "sh",
-                    "-c",
-                    "[ `asdf plugin list | grep 'rust' | wc -l` -eq 1 ]"
-                ],
-                "commands": [
-                    [
-                        "asdf",
-                        "plugin",
-                        "add",
-                        "rust"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "asdf",
-                        "plugin",
-                        "remove",
-                        "rust"
-                    ]
-                ]
-            },
-            {
-                "description": "Install stable rust",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v rustc"
-                ],
-                "commands": [
-                    [
-                        "asdf",
-                        "install",
-                        "rust",
-                        "stable"
-                    ],
-                    [
-                        "asdf",
-                        "set",
-                        "--home",
-                        "rust",
-                        "stable"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "asdf",
-                        "uninstall",
-                        "rust"
-                    ]
-                ]
-            }
-        ]
-    },
-    "arch": {},
-    "macos": {},
-    "ubuntu": {}
+        "reverses": [["asdf", "uninstall", "rust"]]
+      }
+    ]
+  },
+  "arch": {},
+  "macos": {},
+  "ubuntu": {}
 }

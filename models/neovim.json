@@ -1,101 +1,43 @@
 {
-    "default": {
-        "description": "NeoVim setup",
-        "check": [
-            "sh",
-            "-c",
-            "command -v nvim"
-        ],
-        "configs": [
-            {
-                "description": "Neovim configs",
-                "src": "./configs/nvim",
-                "dst": "${HOME}/.config/nvim"
-            }
-        ]
-    },
-    "arch": {
-        "installs": [
-            {
-                "description": "Install neovim",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v nvim"
-                ],
-                "commands": [
-                    [
-                        "sudo",
-                        "pacman",
-                        "-S",
-                        "neovim"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "sudo",
-                        "pacman",
-                        "-Runs",
-                        "neovim"
-                    ]
-                ]
-            }
-        ]
-    },
-    "macos": {
-        "installs": [
-            {
-                "description": "Install neovim",
-                "check": [
-                    "command",
-                    "-v",
-                    "nvim"
-                ],
-                "commands": [
-                    [
-                        "brew",
-                        "install",
-                        "neovim"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "brew",
-                        "uninstall",
-                        "neovim"
-                    ]
-                ]
-            }
-        ]
-    },
-    "ubuntu": {
-        "installs": [
-            {
-                "description": "Install neovim",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v nvim"
-                ],
-                "commands": [
-                    [
-                        "sudo",
-                        "apt",
-                        "install",
-                        "-y",
-                        "neovim"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "sudo",
-                        "apt",
-                        "remove",
-                        "-y",
-                        "neovim"
-                    ]
-                ]
-            }
-        ]
-    }
+  "default": {
+    "description": "NeoVim setup",
+    "check": ["sh", "-c", "command -v nvim"],
+    "configs": [
+      {
+        "description": "Neovim configs",
+        "src": "./configs/nvim",
+        "dst": "${HOME}/.config/nvim"
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install neovim",
+        "check": ["sh", "-c", "command -v nvim"],
+        "commands": [["sudo", "pacman", "-S", "neovim"]],
+        "reverses": [["sudo", "pacman", "-Runs", "neovim"]]
+      }
+    ]
+  },
+  "macos": {
+    "installs": [
+      {
+        "description": "Install neovim",
+        "check": ["command", "-v", "nvim"],
+        "commands": [["brew", "install", "neovim"]],
+        "reverses": [["brew", "uninstall", "neovim"]]
+      }
+    ]
+  },
+  "ubuntu": {
+    "installs": [
+      {
+        "description": "Install neovim",
+        "check": ["sh", "-c", "command -v nvim"],
+        "commands": [["sudo", "apt", "install", "-y", "neovim"]],
+        "reverses": [["sudo", "apt", "remove", "-y", "neovim"]]
+      }
+    ]
+  }
 }

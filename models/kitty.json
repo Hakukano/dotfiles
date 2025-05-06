@@ -1,71 +1,33 @@
 {
-    "default": {
-        "description": "Kitty setup",
-        "check": [
-            "sh",
-            "-c",
-            "command -v kitty"
-        ],
-        "configs": [
-            {
-                "description": "Kitty configs",
-                "src": "./configs/kitty",
-                "dst": "${HOME}/.config/kitty"
-            }
-        ]
-    },
-    "arch": {
-        "installs": [
-            {
-                "description": "Install kitty",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v kitty"
-                ],
-                "commands": [
-                    [
-                        "sudo",
-                        "pacman",
-                        "-S",
-                        "kitty"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "sudo",
-                        "pacman",
-                        "-Runs",
-                        "kitty"
-                    ]
-                ]
-            }
-        ]
-    },
-    "macos": {
-        "installs": [
-            {
-                "description": "Install kitty",
-                "check": [
-                    "command",
-                    "-v",
-                    "kitty"
-                ],
-                "commands": [
-                    [
-                        "brew",
-                        "install",
-                        "kitty"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "brew",
-                        "uninstall",
-                        "kitty"
-                    ]
-                ]
-            }
-        ]
-    }
+  "default": {
+    "description": "Kitty setup",
+    "check": ["sh", "-c", "command -v kitty"],
+    "configs": [
+      {
+        "description": "Kitty configs",
+        "src": "./configs/kitty",
+        "dst": "${HOME}/.config/kitty"
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install kitty",
+        "check": ["sh", "-c", "command -v kitty"],
+        "commands": [["sudo", "pacman", "-S", "kitty"]],
+        "reverses": [["sudo", "pacman", "-Runs", "kitty"]]
+      }
+    ]
+  },
+  "macos": {
+    "installs": [
+      {
+        "description": "Install kitty",
+        "check": ["command", "-v", "kitty"],
+        "commands": [["brew", "install", "kitty"]],
+        "reverses": [["brew", "uninstall", "kitty"]]
+      }
+    ]
+  }
 }

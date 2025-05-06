@@ -1,41 +1,18 @@
 {
-    "default": {
-        "description": "ripgrep",
-        "check": [
-            "sh",
-            "-c",
-            "command -v rg"
-        ],
-        "dependencies": [
-            "rust"
-        ],
-        "installs": [
-            {
-                "description": "Install rg",
-                "check": [
-                    "sh",
-                    "-c",
-                    "command -v rg"
-                ],
-                "commands": [
-                    [
-                        "cargo",
-                        "install",
-                        "ripgrep",
-                        "--features=pcre2"
-                    ]
-                ],
-                "reverses": [
-                    [
-                        "cargo",
-                        "uninstall",
-                        "ripgrep"
-                    ]
-                ]
-            }
-        ]
-    },
-    "arch": {},
-    "macos": {},
-    "ubuntu": {}
+  "default": {
+    "description": "ripgrep",
+    "check": ["sh", "-c", "command -v rg"],
+    "dependencies": ["rust"],
+    "installs": [
+      {
+        "description": "Install rg",
+        "check": ["sh", "-c", "command -v rg"],
+        "commands": [["cargo", "install", "ripgrep", "--features=pcre2"]],
+        "reverses": [["cargo", "uninstall", "ripgrep"]]
+      }
+    ]
+  },
+  "arch": {},
+  "macos": {},
+  "ubuntu": {}
 }

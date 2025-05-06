@@ -1,40 +1,21 @@
 {
   "default": {
     "description": "fzf",
-    "check": [
-      "sh",
-      "-c",
-      "[ -d \"${HOME}/.fzf\" ]"
-    ],
-    "dependencies": [
-      "ag",
-      "rg"
-    ]
+    "check": ["sh", "-c", "[ -d \"${HOME}/.fzf\" ]"],
+    "dependencies": ["ag", "rg"]
   },
   "arch": {
     "installs": [
       {
         "description": "Install fzf",
-        "check": [
-          "sh",
-          "-c",
-          "command -v fzf"
-        ],
+        "check": ["sh", "-c", "command -v fzf"],
         "commands": [
-          [
-            "sudo",
-            "pacman",
-            "-S",
-            "fzf"
-          ]
+          ["sudo", "pacman", "-S", "fzf"],
+          ["fzf", "--zsh", ">", "${HOME}/.fzf.zsh"]
         ],
         "reverses": [
-          [
-            "sudo",
-            "pacman",
-            "-Runs",
-            "fzf"
-          ]
+          ["rm", "-f", "${HOME}/.fzf.zsh"],
+          ["sudo", "pacman", "-Runs", "fzf"]
         ]
       }
     ]
@@ -43,11 +24,7 @@
     "installs": [
       {
         "description": "Install fzf",
-        "check": [
-          "sh",
-          "-c",
-          "[ -d \"${HOME}/.fzf\" ]"
-        ],
+        "check": ["sh", "-c", "[ -d \"${HOME}/.fzf\" ]"],
         "commands": [
           [
             "git",
@@ -57,17 +34,9 @@
             "https://github.com/junegunn/fzf.git",
             "${HOME}/.fzf"
           ],
-          [
-            "${HOME}/.fzf/install"
-          ]
+          ["${HOME}/.fzf/install"]
         ],
-        "reverses": [
-          [
-            "rm",
-            "-rf",
-            "${HOME}/.fzf"
-          ]
-        ]
+        "reverses": [["rm", "-rf", "${HOME}/.fzf"]]
       }
     ]
   },
@@ -75,11 +44,7 @@
     "installs": [
       {
         "description": "Install fzf",
-        "check": [
-          "sh",
-          "-c",
-          "[ -d \"${HOME}/.fzf\" ]"
-        ],
+        "check": ["sh", "-c", "[ -d \"${HOME}/.fzf\" ]"],
         "commands": [
           [
             "git",
@@ -89,17 +54,9 @@
             "https://github.com/junegunn/fzf.git",
             "${HOME}/.fzf"
           ],
-          [
-            "${HOME}/.fzf/install"
-          ]
+          ["${HOME}/.fzf/install"]
         ],
-        "reverses": [
-          [
-            "rm",
-            "-rf",
-            "${HOME}/.fzf"
-          ]
-        ]
+        "reverses": [["rm", "-rf", "${HOME}/.fzf"]]
       }
     ]
   }

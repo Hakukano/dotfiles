@@ -1,39 +1,21 @@
 {
   "default": {
     "description": "asdf version manager",
-    "check": [
-      "sh",
-      "-c",
-      "command -v asdf"
-    ]
+    "check": ["sh", "-c", "command -v asdf"]
   },
   "arch": {
     "installs": [
       {
         "description": "Install asdf",
-        "check": [
-          "sh",
-          "-c",
-          "command -v asdf"
-        ],
+        "check": ["sh", "-c", "command -v asdf"],
         "commands": [
-          [
-            "paru",
-            "-S",
-            "asdf-vm"
-          ],
+          ["paru", "-S", "asdf-vm"],
           [
             "echo",
             "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
           ]
         ],
-        "reverses": [
-          [
-            "paru",
-            "-Runs",
-            "asdf-vm"
-          ]
-        ]
+        "reverses": [["paru", "-Runs", "asdf-vm"]]
       }
     ]
   },
@@ -41,29 +23,15 @@
     "installs": [
       {
         "description": "Install asdf",
-        "check": [
-          "command",
-          "-v",
-          "asdf"
-        ],
+        "check": ["command", "-v", "asdf"],
         "commands": [
-          [
-            "brew",
-            "install",
-            "asdf"
-          ],
+          ["brew", "install", "asdf"],
           [
             "echo",
             "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
           ]
         ],
-        "reverses": [
-          [
-            "brew",
-            "uninstall",
-            "asdf"
-          ]
-        ]
+        "reverses": [["brew", "uninstall", "asdf"]]
       }
     ]
   },
@@ -71,11 +39,7 @@
     "installs": [
       {
         "description": "Install asdf",
-        "check": [
-          "sh",
-          "-c",
-          "[ -d \"${HOME}/.asdf\" ]"
-        ],
+        "check": ["sh", "-c", "[ -d \"${HOME}/.asdf\" ]"],
         "commands": [
           [
             "git",
@@ -90,13 +54,7 @@
             "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
           ]
         ],
-        "reverses": [
-          [
-            "rm",
-            "-rf",
-            "${HOME}/.asdf"
-          ]
-        ]
+        "reverses": [["rm", "-rf", "${HOME}/.asdf"]]
       }
     ]
   }

@@ -1,14 +1,8 @@
 {
   "default": {
     "description": "Nodejs",
-    "check": [
-      "sh",
-      "-c",
-      "command -v yarn"
-    ],
-    "dependencies": [
-      "asdf"
-    ],
+    "check": ["sh", "-c", "command -v yarn"],
+    "dependencies": ["asdf"],
     "configs": [
       {
         "description": "NPM rc",
@@ -24,74 +18,24 @@
           "-c",
           "[ `asdf plugin list | grep 'nodejs' | wc -l` -eq 1 ]"
         ],
-        "commands": [
-          [
-            "asdf",
-            "plugin",
-            "add",
-            "nodejs"
-          ]
-        ],
-        "reverses": [
-          [
-            "asdf",
-            "plugin",
-            "remove",
-            "nodejs"
-          ]
-        ]
+        "commands": [["asdf", "plugin", "add", "nodejs"]],
+        "reverses": [["asdf", "plugin", "remove", "nodejs"]]
       },
       {
         "description": "Install lts nodejs",
-        "check": [
-          "sh",
-          "-c",
-          "command -v npm"
-        ],
+        "check": ["sh", "-c", "command -v npm"],
         "commands": [
-          [
-            "asdf",
-            "install",
-            "nodejs",
-            "lts"
-          ],
-          [
-            "asdf",
-            "set",
-            "--home",
-            "nodejs",
-            "lts"
-          ]
+          ["asdf", "install", "nodejs", "lts"],
+          ["asdf", "set", "--home", "nodejs", "lts"]
         ],
-        "reverses": [
-          [
-            "asdf",
-            "uninstall",
-            "nodejs"
-          ]
-        ]
+        "reverses": [["asdf", "uninstall", "nodejs"]]
       },
       {
         "description": "Install yarn",
-        "check": [
-          "sh",
-          "-c",
-          "command -v yarn"
-        ],
+        "check": ["sh", "-c", "command -v yarn"],
         "commands": [
-          [
-            "npm",
-            "install",
-            "-g",
-            "yarn"
-          ],
-          [
-            "yarn",
-            "config",
-            "set",
-            "prefix",
-            "~/.yarn"
-          ]
+          ["npm", "install", "-g", "yarn"],
+          ["yarn", "config", "set", "prefix", "~/.yarn"]
         ],
         "reverses": []
       }
