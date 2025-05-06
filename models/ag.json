@@ -12,9 +12,9 @@
       {
         "description": "Install ag",
         "check": [
-          "command",
-          "-v",
-          "ag"
+          "sh",
+          "-c",
+          "command -v ag"
         ],
         "commands": [
           [

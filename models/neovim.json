@@ -19,9 +19,9 @@
             {
                 "description": "Install neovim",
                 "check": [
-                    "command",
-                    "-v",
-                    "neovim"
+                    "sh",
+                    "-c",
+                    "command -v nvim"
                 ],
                 "commands": [
                     [

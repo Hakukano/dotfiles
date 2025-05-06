@@ -12,9 +12,9 @@
       {
         "description": "Install asdf",
         "check": [
-          "command",
-          "-v",
-          "asdf"
+          "sh",
+          "-c",
+          "command -v asdf"
         ],
         "commands": [
           [

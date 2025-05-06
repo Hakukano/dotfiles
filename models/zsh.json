@@ -24,9 +24,9 @@
             {
                 "description": "Install zsh",
                 "check": [
-                    "command",
-                    "-v",
-                    "zsh"
+                    "sh",
+                    "-c",
+                    "command -v zsh"
                 ],
                 "commands": [
                     [

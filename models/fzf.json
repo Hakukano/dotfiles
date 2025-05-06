@@ -46,9 +46,9 @@
       {
         "description": "Install fzf",
         "check": [
-          "command",
-          "-v",
-          "fzf"
+          "sh",
+          "-c",
+          "command -v fzf"
         ],
         "commands": [
           [

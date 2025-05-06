@@ -19,9 +19,9 @@
             {
                 "description": "Install kitty",
                 "check": [
-                    "command",
-                    "-v",
-                    "kitty"
+                    "sh",
+                    "-c",
+                    "command -v kitty"
                 ],
                 "commands": [
                     [

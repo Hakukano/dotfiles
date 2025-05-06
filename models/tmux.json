@@ -19,9 +19,9 @@
             {
                 "description": "Install tmux",
                 "check": [
-                    "command",
-                    "-v",
-                    "tmux"
+                    "sh",
+                    "-c",
+                    "command -v tmux"
                 ],
                 "commands": [
                     [
