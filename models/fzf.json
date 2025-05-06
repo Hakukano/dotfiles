@@ -1,7 +1,7 @@
 {
   "default": {
     "description": "fzf",
-    "check": ["sh", "-c", "[ -d \"${HOME}/.fzf\" ]"],
+    "check": ["sh", "-c", "command -v fzf"],
     "dependencies": ["ag", "rg"]
   },
   "arch": {
