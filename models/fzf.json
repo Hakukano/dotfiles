@@ -9,7 +9,37 @@
     "dependencies": [
       "ag",
       "rg"
-    ],
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install fzf",
+        "check": [
+          "sh",
+          "-c",
+          "command -v fzf"
+        ],
+        "commands": [
+          [
+            "sudo",
+            "pacman",
+            "-S",
+            "fzf"
+          ]
+        ],
+        "reverses": [
+          [
+            "sudo",
+            "pacman",
+            "-Runs",
+            "fzf"
+          ]
+        ]
+      }
+    ]
+  },
+  "macos": {
     "installs": [
       {
         "description": "Install fzf",
@@ -41,34 +71,36 @@
       }
     ]
   },
-  "arch": {
+  "ubuntu": {
     "installs": [
       {
         "description": "Install fzf",
         "check": [
           "sh",
           "-c",
-          "command -v fzf"
+          "[ -d \"${HOME}/.fzf\" ]"
         ],
         "commands": [
           [
-            "sudo",
-            "pacman",
-            "-S",
-            "fzf"
+            "git",
+            "clone",
+            "--depth",
+            "1",
+            "https://github.com/junegunn/fzf.git",
+            "${HOME}/.fzf"
+          ],
+          [
+            "${HOME}/.fzf/install"
           ]
         ],
         "reverses": [
           [
-            "sudo",
-            "pacman",
-            "-Runs",
-            "fzf"
+            "rm",
+            "-rf",
+            "${HOME}/.fzf"
           ]
         ]
       }
     ]
-  },
-  "macos": {},
-  "ubuntu": {}
+  }
 }
