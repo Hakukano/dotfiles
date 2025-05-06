@@ -1,10 +1,9 @@
-Table of Contents
-=================
+# Table of Contents
 
-   * [Arch](#arch)
-      * [Example](#example)
-      * [Post-installation](#post-installation)
-   * [Installation](#installation)
+- [Arch](#arch)
+  - [Example](#example)
+  - [Post-installation](#post-installation)
+- [Installation](#installation)
 
 # Arch
 
@@ -30,7 +29,8 @@ timedatectl set-ntp true
 fdisk /dev/sda
 ```
 
-* EFI + GPT
+- EFI + GPT
+
 ```
 g
 n
@@ -63,7 +63,8 @@ mount /dev/sda1 /mnt/boot
 swapon /dev/sda2
 ```
 
-* BIOS + MBR
+- BIOS + MBR
+
 ```
 o
 n
@@ -91,7 +92,7 @@ swapon /dev/sda1
 ### Pacstrap
 
 ```sh
-pacstrap /mnt base linux linux-firmware vim net-tools netctl sudo grub
+pacstrap /mnt base linux linux-firmware vim net-tools networkmanager sudo grub
 ```
 
 ### Config system
@@ -111,14 +112,14 @@ passwd
 
 ### Bootloader
 
-* EFI + GPT
+- EFI + GPT
 
 ```
 pacman -S efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 ```
 
-* BIOS + MBR
+- BIOS + MBR
 
 ```
 grub-install --target=i386-pc /dev/sda
@@ -150,28 +151,26 @@ reboot
 ### After guide su
 
 ```sh
-echo -e "Interface=XXX\nConnection=ethernet\nIP=static\nAddress=('XXX.XXX.XXX.XXX/XX')\nGateway='XXX.XXX.XXX.XXX'\nDNS=('XXX.XXX.XXX.XXX')" > /etc/netctl/ethernet_static
-chmod +r /etc/netctl/ethernet_static
-netctl start ethernet_static
-netctl enable ethernet_static
+systemctl start NetworkManager
+systemctl enable NetworkManager
 groupadd sudo
 useradd -m XXX
 passwd XXX
 usermod -aG sudo XXX
 visudo
-uncomment %sudo & append XXX ALL=(ALL) NOPASSWD:ALL
+uncomment %sudo
 exit
 ```
 
 ### In user space
 
-``` sh
+```sh
 sudo pacman -Syu
 sudo pacman -S --needed base-devel git
 mkdir ~/Git
 cd ~/Git
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 sudo pacman -S openssh
 ssh-keygen
