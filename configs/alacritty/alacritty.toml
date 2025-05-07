@@ -1,0 +1,5 @@
+[general]
+import = [
+"font.toml",
+"colors.toml",
+]
