@@ -9,6 +9,11 @@
         "dst": "${HOME}/.xinitrc"
       },
       {
+        "description": "Picom configs",
+        "src": "./configs/picom",
+        "dst": "${HOME}/.config/picom"
+      },
+      {
         "description": "Polybar configs",
         "src": "./configs/polybar",
         "dst": "${HOME}/.config/polybar"
