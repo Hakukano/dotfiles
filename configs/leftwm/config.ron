@@ -39,7 +39,7 @@
     focus_behaviour: Sloppy,
     focus_new_windows: true,
     keybind: [
-        (command: Execute, value: "rofi", modifier: ["modkey"], key: "d"),
+        (command: Execute, value: "rofi -show combi", modifier: ["modkey"], key: "d"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),
         (command: CloseWindow, value: "", modifier: ["modkey", "Shift"], key: "q"),
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
