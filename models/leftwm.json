@@ -19,6 +19,11 @@
         "dst": "${HOME}/.config/polybar"
       },
       {
+        "description": "Rofi configs",
+        "src": "./configs/rofi",
+        "dst": "${HOME}/.config/rofi"
+      },
+      {
         "description": "Leftwm configs",
         "src": "./configs/leftwm",
         "dst": "${HOME}/.config/leftwm"
@@ -43,6 +48,16 @@
         "check": ["sh", "-c", "command -v startx"],
         "commands": [["sudo", "pacman", "-S", "xorg-xinit"]],
         "reverses": [["sudo", "pacman", "-Runs", "xorg-xinit"]]
+      },
+      {
+        "description": "Install ttf-jetbrains-mono-nerd",
+        "check": [
+          "sh",
+          "-c",
+          "[ -f /usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf ]"
+        ],
+        "commands": [["sudo", "pacman", "-S", "ttf-jetbrains-mono-nerd"]],
+        "reverses": [["sudo", "pacman", "-Runs", "ttf-jetbrains-mono-nerd"]]
       },
       {
         "description": "Install feh",
@@ -81,10 +96,10 @@
         "reverses": [["sudo", "pacman", "-Runs", "conky"]]
       },
       {
-        "description": "Install dmenu_run",
-        "check": ["sh", "-c", "command -v dmenu"],
-        "commands": [["sudo", "pacman", "-S", "dmenu"]],
-        "reverses": [["sudo", "pacman", "-Runs", "dmenu"]]
+        "description": "Install rofi",
+        "check": ["sh", "-c", "command -v rofi"],
+        "commands": [["sudo", "pacman", "-S", "rofi"]],
+        "reverses": [["sudo", "pacman", "-Runs", "rofi"]]
       },
       {
         "description": "Install leftwm",
