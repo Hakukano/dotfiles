@@ -39,25 +39,5 @@
         "reverses": [["rm", "-rf", "${HOME}/.fzf"]]
       }
     ]
-  },
-  "ubuntu": {
-    "installs": [
-      {
-        "description": "Install fzf",
-        "check": ["sh", "-c", "[ -d \"${HOME}/.fzf\" ]"],
-        "commands": [
-          [
-            "git",
-            "clone",
-            "--depth",
-            "1",
-            "https://github.com/junegunn/fzf.git",
-            "${HOME}/.fzf"
-          ],
-          ["${HOME}/.fzf/install"]
-        ],
-        "reverses": [["rm", "-rf", "${HOME}/.fzf"]]
-      }
-    ]
   }
 }

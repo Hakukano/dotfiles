@@ -29,15 +29,5 @@
         "reverses": [["brew", "uninstall", "neovim"]]
       }
     ]
-  },
-  "ubuntu": {
-    "installs": [
-      {
-        "description": "Install neovim",
-        "check": ["sh", "-c", "command -v nvim"],
-        "commands": [["sudo", "apt", "install", "-y", "neovim"]],
-        "reverses": [["sudo", "apt", "remove", "-y", "neovim"]]
-      }
-    ]
   }
 }

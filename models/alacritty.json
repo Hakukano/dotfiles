@@ -1,0 +1,33 @@
+{
+  "default": {
+    "description": "Alacritty setup",
+    "check": ["sh", "-c", "command -v alacritty"],
+    "configs": [
+      {
+        "description": "Alacritty configs",
+        "src": "./configs/alacritty",
+        "dst": "${HOME}/.config/alacritty"
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install alacritty",
+        "check": ["sh", "-c", "command -v alacritty"],
+        "commands": [["sudo", "pacman", "-S", "alacritty"]],
+        "reverses": [["sudo", "pacman", "-Runs", "alacritty"]]
+      }
+    ]
+  },
+  "macos": {
+    "installs": [
+      {
+        "description": "Install alacritty",
+        "check": ["command", "-v", "alacritty"],
+        "commands": [["brew", "install", "alacritty"]],
+        "reverses": [["brew", "uninstall", "alacritty"]]
+      }
+    ]
+  }
+}

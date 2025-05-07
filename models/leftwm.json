@@ -1,0 +1,70 @@
+{
+  "default": {
+    "description": "Leftwm and essentials setup",
+    "check": ["sh", "-c", "command -v leftwm"],
+    "configs": [
+      {
+        "description": "Leftwm configs",
+        "src": "./configs/leftwm",
+        "dst": "${HOME}/.config/leftwm"
+      },
+      {
+        "description": "Leftwm current theme",
+        "src": "./configs/leftwm/themes/default",
+        "dst": "${HOME}/.config/leftwm/themes/current"
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install xorg",
+        "check": ["sh", "-c", "command -v X"],
+        "commands": [["sudo", "pacman", "-S", "xorg"]],
+        "reverses": [["sudo", "pacman", "-Runs", "xorg"]]
+      },
+      {
+        "description": "Install xorg-xinit",
+        "check": ["sh", "-c", "command -v startx"],
+        "commands": [["sudo", "pacman", "-S", "xorg-xinit"]],
+        "reverses": [["sudo", "pacman", "-Runs", "xorg-xinit"]]
+      },
+      {
+        "description": "Install feh",
+        "check": ["sh", "-c", "command -v feh"],
+        "commands": [["sudo", "pacman", "-S", "feh"]],
+        "reverses": [["sudo", "pacman", "-Runs", "feh"]]
+      },
+      {
+        "description": "Install picom",
+        "check": ["sh", "-c", "command -v picom"],
+        "commands": [["sudo", "pacman", "-S", "picom"]],
+        "reverses": [["sudo", "pacman", "-Runs", "picom"]]
+      },
+      {
+        "description": "Install polybar",
+        "check": ["sh", "-c", "command -v polybar"],
+        "commands": [["sudo", "pacman", "-S", "polybar"]],
+        "reverses": [["sudo", "pacman", "-Runs", "polybar"]]
+      },
+      {
+        "description": "Install conky",
+        "check": ["sh", "-c", "command -v conky"],
+        "commands": [["sudo", "pacman", "-S", "conky"]],
+        "reverses": [["sudo", "pacman", "-Runs", "conky"]]
+      },
+      {
+        "description": "Install dmenu_run",
+        "check": ["sh", "-c", "command -v dmenu"],
+        "commands": [["sudo", "pacman", "-S", "dmenu"]],
+        "reverses": [["sudo", "pacman", "-Runs", "dmenu"]]
+      },
+      {
+        "description": "Install leftwm",
+        "check": ["sh", "-c", "command -v leftwm"],
+        "commands": [["paru", "-S", "leftwm"]],
+        "reverses": [["paru", "-Runs", "leftwm"]]
+      }
+    ]
+  }
+}
