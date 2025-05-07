@@ -1,0 +1,112 @@
+{
+  "default": {
+    "description": "Leftwm and essentials setup",
+    "check": ["sh", "-c", "command -v leftwm"],
+    "configs": [
+      {
+        "description": "xorg configs",
+        "src": "./configs/xorg/xinitrc",
+        "dst": "${HOME}/.xinitrc"
+      },
+      {
+        "description": "Picom configs",
+        "src": "./configs/picom",
+        "dst": "${HOME}/.config/picom"
+      },
+      {
+        "description": "Polybar configs",
+        "src": "./configs/polybar",
+        "dst": "${HOME}/.config/polybar"
+      },
+      {
+        "description": "Rofi configs",
+        "src": "./configs/rofi",
+        "dst": "${HOME}/.config/rofi"
+      },
+      {
+        "description": "Leftwm configs",
+        "src": "./configs/leftwm",
+        "dst": "${HOME}/.config/leftwm"
+      },
+      {
+        "description": "Leftwm current theme",
+        "src": "./configs/leftwm/themes/default",
+        "dst": "${HOME}/.config/leftwm/themes/current"
+      }
+    ]
+  },
+  "arch": {
+    "installs": [
+      {
+        "description": "Install xorg",
+        "check": ["sh", "-c", "command -v X"],
+        "commands": [["sudo", "pacman", "-S", "xorg"]],
+        "reverses": [["sudo", "pacman", "-Runs", "xorg"]]
+      },
+      {
+        "description": "Install xorg-xinit",
+        "check": ["sh", "-c", "command -v startx"],
+        "commands": [["sudo", "pacman", "-S", "xorg-xinit"]],
+        "reverses": [["sudo", "pacman", "-Runs", "xorg-xinit"]]
+      },
+      {
+        "description": "Install ttf-jetbrains-mono-nerd",
+        "check": [
+          "sh",
+          "-c",
+          "[ -f /usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf ]"
+        ],
+        "commands": [["sudo", "pacman", "-S", "ttf-jetbrains-mono-nerd"]],
+        "reverses": [["sudo", "pacman", "-Runs", "ttf-jetbrains-mono-nerd"]]
+      },
+      {
+        "description": "Install feh",
+        "check": ["sh", "-c", "command -v feh"],
+        "commands": [["sudo", "pacman", "-S", "feh"]],
+        "reverses": [["sudo", "pacman", "-Runs", "feh"]]
+      },
+      {
+        "description": "Install picom",
+        "check": ["sh", "-c", "command -v picom"],
+        "commands": [["sudo", "pacman", "-S", "picom"]],
+        "reverses": [["sudo", "pacman", "-Runs", "picom"]]
+      },
+      {
+        "description": "Install pulseaudio",
+        "check": ["sh", "-c", "command -v pulseaudio"],
+        "commands": [["sudo", "pacman", "-S", "pulseaudio"]],
+        "reverses": [["sudo", "pacman", "-Runs", "pulseaudio"]]
+      },
+      {
+        "description": "Install network-manager-applet",
+        "check": ["sh", "-c", "command -v nm-applet"],
+        "commands": [["sudo", "pacman", "-S", "network-manager-applet"]],
+        "reverses": [["sudo", "pacman", "-Runs", "network-manager-applet"]]
+      },
+      {
+        "description": "Install polybar",
+        "check": ["sh", "-c", "command -v polybar"],
+        "commands": [["sudo", "pacman", "-S", "polybar"]],
+        "reverses": [["sudo", "pacman", "-Runs", "polybar"]]
+      },
+      {
+        "description": "Install conky",
+        "check": ["sh", "-c", "command -v conky"],
+        "commands": [["sudo", "pacman", "-S", "conky"]],
+        "reverses": [["sudo", "pacman", "-Runs", "conky"]]
+      },
+      {
+        "description": "Install rofi",
+        "check": ["sh", "-c", "command -v rofi"],
+        "commands": [["sudo", "pacman", "-S", "rofi"]],
+        "reverses": [["sudo", "pacman", "-Runs", "rofi"]]
+      },
+      {
+        "description": "Install leftwm",
+        "check": ["sh", "-c", "command -v leftwm"],
+        "commands": [["paru", "-S", "leftwm"]],
+        "reverses": [["paru", "-Runs", "leftwm"]]
+      }
+    ]
+  }
+}

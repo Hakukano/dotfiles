@@ -22,15 +22,5 @@
         "reverses": [["brew", "uninstall", "the_silver_searcher"]]
       }
     ]
-  },
-  "ubuntu": {
-    "installs": [
-      {
-        "description": "Install ag",
-        "check": ["sh", "-c", "command -v ag"],
-        "commands": [["sudo", "apt", "install", "-y", "silversearcher-ag"]],
-        "reverses": [["sudo", "apt", "remove", "-y", "silversearcher-ag"]]
-      }
-    ]
   }
 }

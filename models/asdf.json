@@ -34,28 +34,5 @@
         "reverses": [["brew", "uninstall", "asdf"]]
       }
     ]
-  },
-  "ubuntu": {
-    "installs": [
-      {
-        "description": "Install asdf",
-        "check": ["sh", "-c", "[ -d \"${HOME}/.asdf\" ]"],
-        "commands": [
-          [
-            "git",
-            "clone",
-            "https://github.com/asdf-vm/asdf.git",
-            "${HOME}/.asdf",
-            "--branch",
-            "v0.16.1"
-          ],
-          [
-            "echo",
-            "Please visit https://asdf-vm.com/guide/getting-started.html to setup asdf"
-          ]
-        ],
-        "reverses": [["rm", "-rf", "${HOME}/.asdf"]]
-      }
-    ]
   }
 }
