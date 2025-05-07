@@ -4,6 +4,16 @@
     "check": ["sh", "-c", "command -v leftwm"],
     "configs": [
       {
+        "description": "xorg configs",
+        "src": "./configs/xorg/xinitrc",
+        "dst": "${HOME}/.xinitrc"
+      },
+      {
+        "description": "Polybar configs",
+        "src": "./configs/polybar",
+        "dst": "${HOME}/.config/polybar"
+      },
+      {
         "description": "Leftwm configs",
         "src": "./configs/leftwm",
         "dst": "${HOME}/.config/leftwm"
@@ -40,6 +50,18 @@
         "check": ["sh", "-c", "command -v picom"],
         "commands": [["sudo", "pacman", "-S", "picom"]],
         "reverses": [["sudo", "pacman", "-Runs", "picom"]]
+      },
+      {
+        "description": "Install pulseaudio",
+        "check": ["sh", "-c", "command -v pulseaudio"],
+        "commands": [["sudo", "pacman", "-S", "pulseaudio"]],
+        "reverses": [["sudo", "pacman", "-Runs", "pulseaudio"]]
+      },
+      {
+        "description": "Install network-manager-applet",
+        "check": ["sh", "-c", "command -v nm-applet"],
+        "commands": [["sudo", "pacman", "-S", "network-manager-applet"]],
+        "reverses": [["sudo", "pacman", "-Runs", "network-manager-applet"]]
       },
       {
         "description": "Install polybar",
