@@ -22,3 +22,12 @@ eachdir() {
         echo ''
     done
 }
+
+# nuke docker images and system
+dnuke() {
+    docker image prune
+    for image in `docker images | tail -n +2 | awk '{print($3);}'`; do
+        docker rmi "${image}"
+    done
+    docker system prune
+}
