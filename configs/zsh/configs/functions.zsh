@@ -23,8 +23,9 @@ eachdir() {
     done
 }
 
-# nuke docker images and system
+# nuke docker images, volumes and system
 dnuke() {
+    docker volume prune
     docker image prune
     for image in `docker images | tail -n +2 | awk '{print($3);}'`; do
         docker rmi "${image}"
