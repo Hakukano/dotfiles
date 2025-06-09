@@ -11,7 +11,7 @@
         "check": ["sh", "-c", "command -v fzf"],
         "commands": [
           ["sudo", "pacman", "-S", "fzf"],
-          ["fzf", "--zsh", ">", "${HOME}/.fzf.zsh"]
+          ["sh", "-c", "fzf --zsh > ${HOME}/.fzf.zsh"]
         ],
         "reverses": [
           ["rm", "-f", "${HOME}/.fzf.zsh"],
