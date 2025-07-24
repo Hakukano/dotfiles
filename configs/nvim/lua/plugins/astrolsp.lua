@@ -44,6 +44,11 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      eslint = {
+        init_options = {
+          provideFormatter = false,
+        },
+      },
       jsonls = {
         init_options = {
           provideFormatter = false,
