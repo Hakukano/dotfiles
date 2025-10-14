@@ -4,6 +4,11 @@ export COMPLETION_WAITING_DOTS="true"
 # Default editor
 export EDITOR=nvim
 
+# ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
 # Base PATH
 PATH="/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin:$PATH"
 

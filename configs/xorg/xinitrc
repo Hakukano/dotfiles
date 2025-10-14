@@ -46,7 +46,7 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
-pulseaudio --start
+ibus-daemon -rxRd
 nm-applet &
 polybar &
 exec leftwm

@@ -126,6 +126,12 @@
         "reverses": [["sudo", "pacman", "-Runs", "rofi"]]
       },
       {
+        "description": "Install ibus",
+        "check": ["sh", "-c", "command -v ibus-daemon"],
+        "commands": [["sudo", "pacman", "-S", "ibus ibus-anthy ibus-libpinyin"]],
+        "reverses": [["sudo", "pacman", "-Runs", "ibus ibus-anthy ibus-libpinyin"]]
+      },
+      {
         "description": "Install leftwm",
         "check": ["sh", "-c", "command -v leftwm"],
         "commands": [["paru", "-S", "leftwm"]],
