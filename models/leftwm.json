@@ -96,6 +96,12 @@
         "reverses": [["sudo", "pacman", "-Runs", "wireplumber"]]
       },
       {
+        "description": "Install pavucontrol",
+        "check": ["sh", "-c", "command -v pavucontrol"],
+        "commands": [["sudo", "pacman", "-S", "pavucontrol"]],
+        "reverses": [["sudo", "pacman", "-Runs", "pavucontrol"]]
+      },
+      {
         "description": "Install network-manager-applet",
         "check": ["sh", "-c", "command -v nm-applet"],
         "commands": [["sudo", "pacman", "-S", "network-manager-applet"]],
