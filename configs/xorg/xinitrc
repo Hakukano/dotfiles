@@ -49,5 +49,5 @@ fi
 ibus-daemon -rxRd
 nm-applet &
 polybar &
-udiskie &
+udiskie --smart-tray &
 exec leftwm
