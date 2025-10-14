@@ -50,6 +50,12 @@
         "reverses": [["sudo", "pacman", "-Runs", "xorg-xinit"]]
       },
       {
+        "description": "Install xclip",
+        "check": ["sh", "-c", "command -v xclip"],
+        "commands": [["sudo", "pacman", "-S", "xclip"]],
+        "reverses": [["sudo", "pacman", "-Runs", "xclip"]]
+      },
+      {
         "description": "Install ttf-jetbrains-mono-nerd",
         "check": [
           "sh",
@@ -72,10 +78,22 @@
         "reverses": [["sudo", "pacman", "-Runs", "picom"]]
       },
       {
-        "description": "Install pulseaudio",
-        "check": ["sh", "-c", "command -v pulseaudio"],
-        "commands": [["sudo", "pacman", "-S", "pulseaudio"]],
-        "reverses": [["sudo", "pacman", "-Runs", "pulseaudio"]]
+        "description": "Install pipewire",
+        "check": ["sh", "-c", "command -v pipewire"],
+        "commands": [["sudo", "pacman", "-S", "pipewire"]],
+        "reverses": [["sudo", "pacman", "-Runs", "pipewire"]]
+      },
+      {
+        "description": "Install pipewire-pulse",
+        "check": ["sh", "-c", "command -v pipewire-pulse"],
+        "commands": [["sudo", "pacman", "-S", "pipewire-pulse"]],
+        "reverses": [["sudo", "pacman", "-Runs", "pipewire-pulse"]]
+      },
+      {
+        "description": "Install wireplumber",
+        "check": ["sh", "-c", "command -v wpctl"],
+        "commands": [["sudo", "pacman", "-S", "wireplumber"]],
+        "reverses": [["sudo", "pacman", "-Runs", "wireplumber"]]
       },
       {
         "description": "Install network-manager-applet",
