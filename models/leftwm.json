@@ -132,6 +132,18 @@
         "reverses": [["sudo", "pacman", "-Runs", "ibus ibus-anthy ibus-libpinyin"]]
       },
       {
+        "description": "Install udisks2",
+        "check": ["sh", "-c", "command -v udisksctl"],
+        "commands": [["sudo", "pacman", "-S", "udisks2"]],
+        "reverses": [["sudo", "pacman", "-Runs", "udisks2"]]
+      },
+      {
+        "description": "Install udiskie",
+        "check": ["sh", "-c", "command -v udiskie"],
+        "commands": [["sudo", "pacman", "-S", "udiskie"]],
+        "reverses": [["sudo", "pacman", "-Runs", "udiskie"]]
+      },
+      {
         "description": "Install leftwm",
         "check": ["sh", "-c", "command -v leftwm"],
         "commands": [["paru", "-S", "leftwm"]],

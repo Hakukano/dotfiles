@@ -49,4 +49,5 @@ fi
 ibus-daemon -rxRd
 nm-applet &
 polybar &
+udiskie &
 exec leftwm
