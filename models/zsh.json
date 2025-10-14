@@ -4,7 +4,7 @@
     "check": [
       "sh",
       "-c",
-      "[ `printf '%s' \"${SHELL}\"` = '/bin/zsh' ] && [ -d \"${HOME}/.zgenom\" ]"
+      "command -v zsh && [ -d \"${HOME}/.zgenom\" ]"
     ],
     "configs": [
       {
