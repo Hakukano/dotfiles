@@ -28,7 +28,7 @@ dnuke() {
     docker system prune
     docker volume prune
     docker image prune
-    for image in `docker images | tail -n +2 | awk '{print($3);}'`; do
+    for image in `docker images | tail -n +2 | awk '{print($2);}'`; do
         docker rmi "${image}"
     done
 }
