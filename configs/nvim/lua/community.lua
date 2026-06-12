@@ -10,5 +10,6 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.typst" },
+  { import = "astrocommunity.pack.vue" },
   -- import/override with your plugins folder
 }
