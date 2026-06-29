@@ -38,7 +38,8 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- Ruby version is a hell to manage. Do not use Mason to install solargraph!
+      -- Ruby version is a hell to manage. Do not use Mason to install rubocop or solargraph!
+      "rubocop",
       "solargraph",
     },
     -- customize language server configuration passed to `vim.lsp.config`
