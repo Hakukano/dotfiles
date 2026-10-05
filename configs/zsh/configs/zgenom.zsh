@@ -9,7 +9,7 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/asdf
     zgenom ohmyzsh plugins/colored-man-pages
     zgenom ohmyzsh plugins/git
-    zgenom ohmyzsh plugins/github
+    zgenom ohmyzsh plugins/gh
     zgenom ohmyzsh plugins/kubectl
     zgenom ohmyzsh plugins/pip
     zgenom ohmyzsh plugins/python
