@@ -7,6 +7,7 @@ if ! zgenom saved; then
 
     zgenom ohmyzsh
     zgenom ohmyzsh plugins/asdf
+    zgenom ohmyzsh plugins/aws
     zgenom ohmyzsh plugins/colored-man-pages
     zgenom ohmyzsh plugins/git
     zgenom ohmyzsh plugins/gh
