@@ -46,11 +46,6 @@ return {
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
       -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
-      eslint = {
-        init_options = {
-          provideFormatter = false,
-        },
-      },
       jsonls = {
         init_options = {
           provideFormatter = false,
